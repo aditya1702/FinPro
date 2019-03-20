@@ -4009,6 +4009,7 @@ input[type='button'].btn-block
 .collapse:not(.show)
 {
     display: none;
+    /*border-color: springgreen;*/
 }
 
 .collapsing
@@ -5239,6 +5240,8 @@ input[type='button'].btn-block
 .navbar
 {
     position: relative;
+    /*border-color: springgreen;*/
+    border-bottom: 2px solid darkorange;
 
     display: flex;
 
@@ -5412,6 +5415,7 @@ input[type='button'].btn-block
     {
         flex-flow: row nowrap;
         justify-content: flex-start;
+        /*border-color: springgreen;*/
     }
     .navbar-expand-md .navbar-nav
     {
@@ -5705,13 +5709,34 @@ input[type='button'].btn-block
     border: 1px solid rgba(0, 0, 0, .05);
     border-radius: .375rem; 
     background-color: #fff;
+    border-color: springgreen;
+    background-clip: border-box;
+}
+
+.card-map
+{
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    height: 650px;
+    width: 960px;
+    min-width: 0;
+
+    word-wrap: break-word;
+
+    border: 1px solid rgba(0, 0, 0, .05);
+    border-radius: .375rem;
+    background-color: #fff;
+    margin-top: -10px;
+    border-color: springgreen;
     background-clip: border-box;
 }
 
 .card-candlestick
 {
     position: relative;
-    width: 955px;
+    width: 945px;
     display: flex;
     flex-direction: column;
 
@@ -5721,6 +5746,7 @@ input[type='button'].btn-block
 
     border: 1px solid rgba(0, 0, 0, .05);
     border-radius: .375rem;
+    border-color: springgreen;
     background-color: #fff;
     background-clip: border-box;
 }
@@ -5738,6 +5764,7 @@ input[type='button'].btn-block
 
     border: 1px solid rgba(0, 0, 0, .05);
     border-radius: .375rem;
+    border-color: springgreen;
     background-color: #fff;
     background-clip: border-box;
 }
@@ -5756,6 +5783,7 @@ input[type='button'].btn-block
     border: 1px solid rgba(0, 0, 0, .05);
     border-radius: .375rem;
     background-color: #fff;
+    border-color: springgreen;
     background-clip: border-box;
 }
 
@@ -14749,7 +14777,7 @@ a.text-darker:focus
 
 .text-muted
 {
-    color: #8898aa !important;
+    color: deepskyblue !important;
 }
 
 .text-black-50
@@ -18355,13 +18383,10 @@ textarea[resize='horizontal']
 .icon-shape
 {
     display: inline-flex;
-
+    margin-right: -10px;
     padding: 12px;
-
     text-align: center;
-
-    border-radius: 50%; 
-
+    border-radius: 50%;
     align-items: center;
     justify-content: center;
 }
@@ -18581,7 +18606,6 @@ textarea[resize='horizontal']
 
     width: 100%;
     height: 500px;
-
     border-radius: .375rem;
 }
 
@@ -18953,7 +18977,7 @@ textarea[resize='horizontal']
 .nav-link i.ni
 {
     position: relative;
-    top: -5px;
+    top: 1px;
 }
 
 .nav-pills .nav-item:not(:last-child)
@@ -19172,6 +19196,7 @@ textarea[resize='horizontal']
 .navbar-vertical
 {
     box-shadow: 0 0 2rem 0 rgba(136, 152, 170, .15) !important;
+    /*border-color: springgreen;*/
 }
 .navbar-vertical .navbar
 {
@@ -19551,6 +19576,8 @@ textarea[resize='horizontal']
     .navbar-vertical.navbar-expand-md
     {
         position: fixed;
+        /*border-color: springgreen;*/
+        border-right: 2px solid darkorange;
         top: 0;
         bottom: 0;
 
@@ -19567,7 +19594,7 @@ textarea[resize='horizontal']
         flex-direction: column;
 
         min-height: 100%;
-        padding-right: 0; 
+        padding-right: 0;
         padding-left: 0;
 
         align-items: stretch;
@@ -19588,6 +19615,7 @@ textarea[resize='horizontal']
         left: 0;
 
         border-width: 0 1px 0 0;
+        /*border-color: springgreen;*/
     }
     .navbar-vertical.navbar-expand-md.fixed-right
     {
@@ -19616,7 +19644,7 @@ textarea[resize='horizontal']
     {
         flex-direction: column;
 
-        margin-right: -1.5rem; 
+        margin-right: -1.5rem;
         margin-left: -1.5rem;
     }
     .navbar-vertical.navbar-expand-md .navbar-nav .nav-link
@@ -19646,7 +19674,7 @@ textarea[resize='horizontal']
         display: block;
 
         padding-top: 1rem;
-        padding-bottom: 1rem; 
+        padding-bottom: 1rem;
 
         text-align: center;
     }

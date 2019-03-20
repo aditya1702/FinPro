@@ -1,7 +1,7 @@
 function cschart() {
 
     var margin = {top: 0, right: 30, bottom: 40, left: 5},
-        width = 873, height = 300, Bheight = 460;
+        width = 865, height = 300, Bheight = 460;
 
     function csrender(selection) {
       selection.each(function() {
@@ -11,7 +11,7 @@ function cschart() {
         var minimal  = d3.min(genData, function(d) { return d.LOW; });
         var maximal  = d3.max(genData, function(d) { return d.HIGH; });
 
-        var extRight = width + margin.right
+        var extRight = width + margin.right;
         var x = d3.scale.ordinal()
             .rangeBands([0, width]);
         

@@ -1,7 +1,7 @@
 function barchart() {
 
   var margin = {top: 300, right: 30, bottom: 10, left: 5 },
-      width = 873, height = 60, mname = "mbar1";
+      width = 865, height = 60, mname = "mbar1";
   
   var MValue = "TURNOVER";
   
@@ -36,11 +36,6 @@ function barchart() {
           .attr("class", "axis yaxis")
           .attr("transform", "translate(" + width + ",0)")
           .call(yAxis.orient("right").tickFormat("").tickSize(0));
-  
-//      svg.append("g")
-//          .attr("class", "axis yaxis")
-//          .attr("transform", "translate(0,0)")
-//          .call(yAxis.orient("left"));
   
       var barwidth    = x.rangeBand();
       var fillwidth   = (Math.floor(barwidth*0.9)/2)*2+1;

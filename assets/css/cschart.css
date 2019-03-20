@@ -69,23 +69,98 @@
   height: 20px;
   color: white; }
 
-path.macd {
-    stroke: #0000AA;
+#volume {
+    margin-left: -22px;
+    margin-right: -22px;
+    margin-top: -3px;
 }
 
-path.signal {
-    stroke: #FF9999;
+#technical {
+    margin-left: -22px;
+    margin-right: -22px;
+    margin-top: -3px;
 }
 
-path.zero {
-    stroke: #BBBBBB;
-    stroke-dasharray: 0;
-    stroke-opacity: 0.5;
+svg {
+    font: 10px sans-serif;
 }
 
-path.difference {
-    fill: #BBBBBB;
-    opacity: 0.5;
+.axis path,
+.axis line {
+    fill: none;
+    stroke: #000;
+    shape-rendering: crispEdges;
+}
+
+path.candle {
+    stroke: #000000;
+}
+
+path.candle.body {
+    stroke-width: 0;
+}
+
+path.candle.up {
+    fill: #00AA00;
+    stroke: #00AA00;
+}
+
+path.candle.down {
+    fill: #FF0000;
+    stroke: #FF0000;
+}
+
+
+.state{
+    fill: none;
+    stroke: #a9a9a9;
+    stroke-width: 1;
+}
+
+.state:hover{
+    fill-opacity:0.5;
+}
+
+#tooltip {
+    position: absolute;
+    text-align: center;
+    padding: 5px;
+    margin-top: -200px;
+    margin-right: 1000px;
+    margin-left: -300px;
+    font: 12px sans-serif;
+    background: lightsteelblue;
+    border: 1px;
+    border-radius: 2px;
+    pointer-events: none;
+}
+#tooltip h4{
+    margin:0;
+    font-size:14px;
+    color: springgreen;
+}
+#tooltip{
+    background:rgba(0,0,0,0.9);
+    border:1px solid grey;
+    border-radius:5px;
+    font-size:12px;
+    width:auto;
+    padding:4px;
+    color:white;
+    opacity:0;
+}
+#tooltip table{
+    table-layout:fixed;
+}
+#tooltip tr td{
+    padding:0;
+    margin:0;
+}
+#tooltip tr td:nth-child(1){
+    width:50px;
+}
+#tooltip tr td:nth-child(2){
+    text-align:center;
 }
 
 /* Candlestick Chart
@@ -116,7 +191,7 @@ path.difference {
 #chart1 .sigmabar rect { pointer-events: none; }
 #chart1 .sigmabar .hoved { fill: white; }
 
-#option    { width: 250px; height: 25px; float: left; padding-top: 5px; margin-top: 25px;}
+#option    { width: 250px; height: 25px; float: left; padding-top: 5px; margin-top: 10px;}
 #option input { cursor: pointer; border-radius: 5px; color: #fff; background: #696d75; border: none; }
 #option input {
                 -webkit-box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.75);
@@ -129,7 +204,7 @@ path.difference {
                 -moz-box-shadow: none;
                 box-shadow: none;
               }
-#infobar   { width: 560px; height: 5px; float: right; padding-top: 5px; text-align: left; font-family: sans-serif; margin-top: 25px; color: white}
+#infobar   { width: 560px; height: 5px; float: right; padding-top: 5px; text-align: left; font-family: sans-serif; margin-top: 10px; color: white}
 .infohead  { width: 140px; height: 25px; margin: 0px 2px; float: left; }
 .infobox   { width: 100px; height: 30px; margin: 0px 2px; float: left; }
 

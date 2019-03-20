@@ -9,14 +9,20 @@ var genRaw, genData;
     d3.csv("./assets/js/stockdata.csv", genType, function(data) {
       genRaw         = data;
       mainjs();
-    }); 
+    });
+
 }());
 
 function toSlice(data) { return data.slice(-TDays[TPeriod]); }
 
 function mainjs() {
-  var toPress    = function() { genData = (TIntervals[TPeriod]!="day")?dataCompress(toSlice(genRaw), TIntervals[TPeriod]):toSlice(genRaw); };
-  toPress(); displayAll();
+
+  var toPress    = function() {
+      genData = (TIntervals[TPeriod]!="day")?dataCompress(toSlice(genRaw), TIntervals[TPeriod]):toSlice(genRaw);
+  };
+
+  toPress();
+  displayAll();
   d3.select("#oneM").on("click",   function(){ TPeriod  = "1M"; toPress(); displayAll(); });
   d3.select("#threeM").on("click", function(){ TPeriod  = "3M"; toPress(); displayAll(); });
   d3.select("#sixM").on("click",   function(){ TPeriod  = "6M"; toPress(); displayAll(); });
