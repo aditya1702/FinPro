@@ -201,7 +201,7 @@ Highcharts.theme = {
 Highcharts.setOptions(Highcharts.theme);
 
 
-$.getJSON('https://www.highcharts.com/samples/data/aapl-v.json', function (data) {
+$.getJSON('./assets/js/aapl-v.json', function (data) {
 
     // create the chart
     Highcharts.stockChart('volume', {

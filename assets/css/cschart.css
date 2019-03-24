@@ -163,6 +163,183 @@ path.candle.down {
     text-align:center;
 }
 
+/*#particles-js canvas {*/
+    /*display: block;*/
+    /*vertical-align: bottom;*/
+    /*-webkit-transform: scale(1);*/
+    /*-ms-transform: scale(1);*/
+    /*transform: scale(1);*/
+    /*opacity: 1;*/
+    /*-webkit-transition: opacity .8s ease, -webkit-transform 1.4s ease;*/
+    /*transition: opacity .8s ease, transform 1.4s ease*/
+/*}*/
+
+/*#particles-js {*/
+    /*width: 100%;*/
+    /*height: 100%;*/
+    /*position: fixed;*/
+    /*z-index: -10;*/
+    /*top: 0;*/
+    /*left: 0*/
+/*}*/
+
+canvas {
+  display: block;
+  vertical-align: bottom;
+}
+
+#aa_particles {
+  z-index: 4;
+  height: 500px;
+  height: 100vh;
+  background: linear-gradient(87deg, #212529 0, #212229 100%);
+}
+
+.aa_sec {
+  position: absolute;
+  z-index: 5;
+  top: 50%;
+  /*right: 0;*/
+  /*left: 0;*/
+  /*margin: 0  auto;*/
+    margin-left: 430px;
+    margin-top: -260px;
+}
+
+.aa_sec_2 {
+  position: absolute;
+  z-index: 5;
+    margin-left: 80px;
+    width: 1000px;
+    margin-top: 250px;
+}
+
+.aa_txt {
+  font: 100 10vh/1 Roboto;
+  text-align: center;
+  background: linear-gradient(87deg, #212529 0, #212229 100%);
+    margin-top: -60px;
+}
+
+.aa_inner {
+  padding: 0 1rem;
+  text-transform: uppercase;
+  background: #ffffff;
+}
+
+.aa_of {
+  padding: 1rem;
+  color: #ffffff;
+  background: linear-gradient(87deg, #212529 0, #212229 100%);
+}
+
+.aa_of_2 {
+  padding: 1rem;
+  color: #ffffff;
+  background: linear-gradient(87deg, #212529 0, #212229 100%);
+}
+
+#typing{
+    /*font: 20 20px/0.8 'Great Vibes', Helvetica, sans-serif;*/
+    font: 100 10vh/1 Roboto;
+    text-align: center;
+    background: linear-gradient(87deg, #212529 0, #212229 100%);
+    color: springgreen;
+}
+
+#typing-2{
+    font: 20 20px/0.8 'Great Vibes', Helvetica, sans-serif;
+    color: navajowhite;
+}
+
+.aa_txt_2 {
+  font: 100 10vh/1 Roboto;
+  text-align: center;
+  background: linear-gradient(87deg, #212529 0, #212229 100%);
+    margin-top: -60px;
+    /*color: navajowhite;*/
+}
+
+.item {
+      margin-bottom: 10px;
+      line-height: 32px;
+}
+.item .title {
+  width: 160px;
+  display: inline-block;
+  text-align: right;
+  margin-right: 10px;
+}
+
+.stock-quote.up .change {
+  border-bottom-width: 10px;
+}
+.stock-quote.down .change {
+  border-top-width: 10px;
+}
+.stock-quote .change {
+  border-left-width: 8px;
+  border-right-width: 8px;
+}
+
+.tooltip-quotes {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+
+.tooltip-quotes .tooltiptext {
+  visibility: hidden;
+  width: 220px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -60px;
+
+  /* Fade in tooltip - takes 1 second to go from 0% to 100% opac: */
+  opacity: 0;
+  transition: opacity 1s;
+}
+
+.tooltip-quotes:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+
+.img__wrap {
+  position: relative;
+  height: 200px;
+  width: 257px;
+}
+
+.img__description {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: black;
+  color: #fff;
+  visibility: hidden;
+  opacity: 0;
+
+  /* transition effect. not necessary */
+  transition: opacity .2s, visibility .2s;
+}
+
+.card:hover .img__description {
+  visibility: visible;
+    cursor: pointer;
+  opacity: 1;
+}
+
+
 /* Candlestick Chart
 /* =============================================== */
 #chart1 .grid { stroke-opacity: .3; }

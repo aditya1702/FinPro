@@ -16,77 +16,33 @@
   <link href="assets/vendor/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
   <!-- Argon CSS -->
   <link type="text/css" href="assets/css/argon.css?v=1.0.0" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="assets/css/jquery.stockquotes.css" />
   <link href="assets/css/cschart.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/heatmap.css">
 </head>
 
 <body>
   <!-- Sidenav -->
   <nav class="navbar navbar-vertical fixed-left navbar-expand-md navbar-light bg-gradient-dark" id="sidenav-main">
     <div class="container-fluid">
+
       <!-- Toggler -->
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#sidenav-collapse-main" aria-controls="sidenav-main" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
+
       <!-- Brand -->
-      <a class="navbar-brand pt-0" href="./company-page.html">
+      <a class="navbar-brand pt-0" href="company-page.html">
         <img src="assets/img/brand/blue.png" class="navbar-brand-img" alt="...">
       </a>
-      <!-- User -->
-      <ul class="nav align-items-center d-md-none">
-        <li class="nav-item dropdown">
-          <a class="nav-link nav-link-icon" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="ni ni-bell-55"></i>
-          </a>
-          <div class="dropdown-menu dropdown-menu-arrow dropdown-menu-right" aria-labelledby="navbar-default_dropdown_1">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Something else here</a>
-          </div>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <div class="media align-items-center">
-              <span class="avatar avatar-sm rounded-circle">
-                <img alt="Image placeholder" src="assets/img/theme/team-1-800x800.jpg">
-              </span>
-            </div>
-          </a>
-          <div class="dropdown-menu dropdown-menu-arrow dropdown-menu-right">
-            <div class=" dropdown-header noti-title">
-              <h6 class="text-overflow m-0">Welcome!</h6>
-            </div>
-            <a href="profile.html" class="dropdown-item">
-              <i class="ni ni-single-02"></i>
-              <span>My profile</span>
-            </a>
-            <a href="profile.html" class="dropdown-item">
-              <i class="ni ni-settings-gear-65"></i>
-              <span>Settings</span>
-            </a>
-            <a href="profile.html" class="dropdown-item">
-              <i class="ni ni-calendar-grid-58"></i>
-              <span>Activity</span>
-            </a>
-            <a href="profile.html" class="dropdown-item">
-              <i class="ni ni-support-16"></i>
-              <span>Support</span>
-            </a>
-            <div class="dropdown-divider"></div>
-            <a href="#!" class="dropdown-item">
-              <i class="ni ni-user-run"></i>
-              <span>Logout</span>
-            </a>
-          </div>
-        </li>
-      </ul>
+
       <!-- Collapse -->
       <div class="collapse navbar-collapse" id="sidenav-collapse-main">
         <!-- Collapse header -->
         <div class="navbar-collapse-header d-md-none">
           <div class="row">
             <div class="col-6 collapse-brand">
-              <a href="./company-page.html">
+              <a href="company-page.html">
                 <img src="assets/img/brand/blue.png">
               </a>
             </div>
@@ -98,17 +54,6 @@
             </div>
           </div>
         </div>
-        <!-- Form -->
-        <form class="mt-4 mb-3 d-md-none">
-          <div class="input-group input-group-rounded input-group-merge">
-            <input type="search" class="form-control form-control-rounded form-control-prepended" placeholder="Search" aria-label="Search">
-            <div class="input-group-prepend">
-              <div class="input-group-text">
-                <span class="fa fa-search"></span>
-              </div>
-            </div>
-          </div>
-        </form>
 
         <!-- Navigation -->
         <ul class="navbar-nav">
@@ -127,21 +72,19 @@
               <i class="ni ni-single-02 text-yellow"></i> <span style="color: darkorange">Account</span>
             </a>
           </li>
-          <!--<li class="nav-item">-->
-            <!--<a class="nav-link" href="../examples/tables.html">-->
-              <!--<i class="ni ni-bullet-list-67 text-red"></i> <span style="color: darkorange">Tables</span>-->
-            <!--</a>-->
-          <!--</li>-->
-          <!--<li class="nav-item">-->
-            <!--<a class="nav-link" href="login.html">-->
-              <!--<i class="ni ni-key-25 text-info"></i> <span style="color: darkorange">Login</span>-->
-            <!--</a>-->
-          <!--</li>-->
-          <!--<li class="nav-item">-->
-            <!--<a class="nav-link" href="register.html">-->
-              <!--<i class="ni ni-circle-08 text-pink"></i> <span style="color: darkorange">Register</span>-->
-            <!--</a>-->
-          <!--</li>-->
+          <li style="margin-top: 15px;margin-left: 15px">
+            <!-- Form -->
+            <form class="navbar-search navbar-search-dark form-inline mr-3 d-none d-md-flex ml-lg-auto">
+              <div class="form-group mb-0">
+                <div class="input-group input-group-alternative">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" ><i class="fas fa-search"></i></span>
+                  </div>
+                  <input class="form-control" placeholder = "Search" type="text" style="width: 150px;height: 50px;">
+                </div>
+              </div>
+            </form>
+          </li>
         </ul>
 
         <!-- Divider -->
@@ -166,15 +109,20 @@
             <!--</a>-->
           <!--</li>-->
         <!--</ul>-->
+
       </div>
     </div>
   </nav>
+
   <!-- Main content -->
   <div class="main-content">
+
     <!-- Top navbar -->
     <nav class="navbar navbar-top navbar-expand-md navbar-dark" id="navbar-main">
       <div class="container-fluid">
-          <!--<script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>-->
+
+        <!-- Ticker Widget -->
+        <!--<script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>-->
               <!--{-->
               <!--"symbols": [-->
                 <!--{-->
@@ -200,68 +148,61 @@
               <!--"locale": "en"-->
             <!--}-->
           <!--</script>-->
-        <!-- Form -->
-        <!--<form class="navbar-search navbar-search-dark form-inline mr-3 d-none d-md-flex ml-lg-auto">-->
-          <!--<div class="form-group mb-0">-->
-            <!--<div class="input-group input-group-alternative">-->
-              <!--<div class="input-group-prepend">-->
-                <!--<span class="input-group-text"><i class="fas fa-search"></i></span>-->
-              <!--</div>-->
-              <!--<input class="form-control" placeholder="Search" type="text">-->
-            <!--</div>-->
-          <!--</div>-->
-        <!--</form>-->
-        <!-- User -->
-        <!--<ul class="navbar-nav align-items-center d-none d-md-flex">-->
-          <!--<li class="nav-item dropdown">-->
-            <!--<a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
-              <!--<div class="media align-items-center">-->
-                <!--<span class="avatar avatar-sm rounded-circle">-->
-                  <!--<img alt="Image placeholder" src="../assets/img/theme/team-4-800x800.jpg">-->
-                <!--</span>-->
-                <!--<div class="media-body ml-2 d-none d-lg-block">-->
-                  <!--<span class="mb-0 text-sm  font-weight-bold">Jessica Jones</span>-->
-                <!--</div>-->
-              <!--</div>-->
-            <!--</a>-->
-            <!--<div class="dropdown-menu dropdown-menu-arrow dropdown-menu-right">-->
-              <!--<div class=" dropdown-header noti-title">-->
-                <!--<h6 class="text-overflow m-0">Welcome!</h6>-->
-              <!--</div>-->
-              <!--<a href="../examples/profile.html" class="dropdown-item">-->
-                <!--<i class="ni ni-single-02"></i>-->
-                <!--<span>My profile</span>-->
-              <!--</a>-->
-              <!--<a href="../examples/profile.html" class="dropdown-item">-->
-                <!--<i class="ni ni-settings-gear-65"></i>-->
-                <!--<span>Settings</span>-->
-              <!--</a>-->
-              <!--<a href="../examples/profile.html" class="dropdown-item">-->
-                <!--<i class="ni ni-calendar-grid-58"></i>-->
-                <!--<span>Activity</span>-->
-              <!--</a>-->
-              <!--<a href="../examples/profile.html" class="dropdown-item">-->
-                <!--<i class="ni ni-support-16"></i>-->
-                <!--<span>Support</span>-->
-              <!--</a>-->
-              <!--<div class="dropdown-divider"></div>-->
-              <!--<a href="#!" class="dropdown-item">-->
-                <!--<i class="ni ni-user-run"></i>-->
-                <!--<span>Logout</span>-->
-              <!--</a>-->
-            <!--</div>-->
-          <!--</li>-->
-        <!--</ul>-->
+
+         <!--User-->
+        <ul class="navbar-nav align-items-center d-none d-md-flex">
+          <li class="nav-item dropdown">
+            <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <div class="media align-items-center">
+                <span class="avatar avatar-sm rounded-circle">
+                  <img alt="Image placeholder" src="assets/img/theme/team-4-800x800.jpg">
+                </span>
+                <div class="media-body ml-2 d-none d-lg-block">
+                  <span class="mb-0 text-sm  font-weight-bold">Jessica Jones</span>
+                </div>
+              </div>
+            </a>
+            <div class="dropdown-menu dropdown-menu-arrow dropdown-menu-right">
+              <div class=" dropdown-header noti-title">
+                <h6 class="text-overflow m-0">Welcome!</h6>
+              </div>
+              <a href="profile.html" class="dropdown-item">
+                <i class="ni ni-single-02"></i>
+                <span>My profile</span>
+              </a>
+              <a href="profile.html" class="dropdown-item">
+                <i class="ni ni-settings-gear-65"></i>
+                <span>Settings</span>
+              </a>
+              <a href="profile.html" class="dropdown-item">
+                <i class="ni ni-calendar-grid-58"></i>
+                <span>Activity</span>
+              </a>
+              <a href="profile.html" class="dropdown-item">
+                <i class="ni ni-support-16"></i>
+                <span>Support</span>
+              </a>
+              <div class="dropdown-divider"></div>
+              <a href="login.html" class="dropdown-item">
+                <i class="ni ni-user-run"></i>
+                <span>Logout</span>
+              </a>
+            </div>
+          </li>
+        </ul>
+
       </div>
     </nav>
+
     <!-- Header -->
     <div class="header bg-gradient-dark pb-8 pt-5 pt-md-8">
       <div class="container-fluid">
         <div class="header-body">
+
           <!-- Card stats -->
           <div class="row">
             <div class="col-xl-3 col-lg-6">
-              <div class="card card-stats mb-4 mb-xl-0 bg-gradient-dark">
+              <div class="card shadow-dark card-stats mb-4 mb-xl-0 bg-gradient-dark">
                 <div class="card-body">
                   <div class="row">
                     <div class="col">
@@ -278,7 +219,7 @@
               </div>
             </div>
             <div class="col-xl-3 col-lg-6">
-              <div class="card card-stats mb-4 mb-xl-0 bg-gradient-dark">
+              <div class="card shadow-dark card-stats mb-4 mb-xl-0 bg-gradient-dark">
                 <div class="card-body">
                   <div class="row">
                     <div class="col">
@@ -294,97 +235,92 @@
                 </div>
               </div>
             </div>
-            <div class="col-xl-3 col-lg-6">
-              <div class="card card-stats mb-4 mb-xl-0 bg-gradient-dark">
-                <div class="card-body">
-                  <div class="row">
+            <div class="col-xl-4">
+              <div class="card-watchlist bg-gradient-dark shadow-dark">
+                <div class="card-header bg-transparent border-0 bg-gradient-dark">
+                  <div class="row align-items-center">
                     <div class="col">
-                      <h5 class="card-title text-uppercase text-muted mb-0">CEO</h5>
-                      <span class="h2 font-weight-bold mb-0" style="color: yellow;">Tim Cook</span>
-                    </div>
-                    <div class="col-auto">
-                      <div class="icon icon-shape bg-pink text-white rounded-circle shadow">
-                        <i class="fas fa-users"></i>
-                      </div>
+                      <h3 class="mb-0 text-muted">Watchlist</h3>
                     </div>
                   </div>
                 </div>
-              </div>
-            </div>
-            <div class="col-xl-3 col-lg-6">
-              <div class="card card-stats mb-4 mb-xl-0 bg-gradient-dark">
-                <div class="card-body">
-                  <div class="row">
-                    <div class="col">
-                      <h5 class="card-title text-uppercase text-muted mb-0">Price</h5>
-                      <span class="h2 font-weight-bold mb-0" style="color: yellow;">186.53</span>
-                    </div>
-                    <div class="col-auto">
-                      <div class="icon icon-shape bg-gradient-warning text-white rounded-circle shadow">
-                        <i class="fas fa-percent"></i>
-                      </div>
-                    </div>
-                  </div>
-                  <p class="mt-3 mb-0 text-muted text-sm">
-                    <span class="text-success mr-2"><i class="fas fa-arrow-up"></i> 12%</span>
-                    <span class="text-nowrap">Since last month</span>
-                  </p>
+                <div class="table-responsive">
+                  <table class="table align-items-center table-dark bg-gradient-dark">
+                    <tbody>
+                      <tr>
+                        <th scope="row">
+                          <span class="title text-white">Twitter</span>
+                        </th>
+                        <td>
+                          <span class="stock-quote" data-symbol="TWTR"></span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th scope="row">
+                          <span class="title text-white">Amazon</span>
+                        </th>
+                        <td>
+                          <span class="stock-quote" data-symbol="AMZN"></span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th scope="row">
+                          <span class="title text-white">Apple</span>
+                        </th>
+                        <td>
+                          <span class="stock-quote" data-symbol="AAPL"></span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th scope="row">
+                          <span class="title text-white">Google</span>
+                        </th>
+                        <td>
+                          <span class="stock-quote" data-symbol="GOOGL"></span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th scope="row">
+                          <span class="title text-white">Facebook</span>
+                        </th>
+                        <td>
+                          <span class="stock-quote" data-symbol="FB"></span>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
                 </div>
-              </div>
+          </div>
             </div>
           </div>
         </div>
       </div>
     </div>
+
     <!-- Page content -->
     <div class="container-fluid mt--7 bg-gradient-dark">
       <div class="row">
         <div class="col-xl-8 mb-5 mb-xl-0">
-          <div class="card-candlestick bg-gradient-dark shadow">
+
+          <!-- Candlestick Chart -->
+          <div class="card-sector-treemap bg-gradient-dark shadow-dark">
             <div class="card-header bg-transparent">
               <div class="row align-items-center">
-                <div class="col">
-                  <!--<div class="pagetitle">-->
-                    <!--<h1 id="stkname" style="float: left">AAPL</h1>-->
-                  <!--</div>-->
-                  <!--<div id="overtext">-->
-                      <!--<table>-->
-                        <!--<tr class="obody"> <td class="ocol0">Price</td> <td class="ocol1">1071.15 <span class="poscol">(+0.58%)</span></td> </tr>-->
-                        <!--<tr class="obody"> <td class="ocol0">Sector</td> <td class="ocol1">Technology</td> </tr>-->
-                        <!--<tr class="obody"> <td class="ocol0">Industry</td> <td class="ocol1">Consumer</td> </tr>-->
-                        <!--<tr class="obody"> <td class="ocol0">Market Cap</td> <td class="ocol1">270000 Cr</a></div>-->
-                        <!--<tr class="obody"> <td class="ocol0">Category</td> <td class="ocol1">Large Cap</a></div>-->
-                      <!--</table>-->
-                  <!--</div>-->
-                  <div id = "option">
-                    <input id="oneM" name="1M" type="button" value="1M"/>
-                    <input id="threeM" name="3M" type="button" value="3M" />
-                    <input id="sixM" name="6M" type="button" value="6M" />
-                    <input id="oneY" name="1Y" type="button" value="1Y" />
-                    <input id="twoY" name="2Y" type="button" value="2Y" />
-                    <input id="fourY" name="4Y" type="button" value="4Y" />
-                  </div>
-                  <div id="infobar">
-                      <div id="infodate" class="infohead"></div>
-                      <div id="infoopen" class="infobox"></div>
-                      <div id="infohigh" class="infobox"></div>
-                      <div id="infolow" class="infobox"></div>
-                      <div id="infoclose" class="infobox"></div>
-                  </div>
-                </div>
               </div>
             </div>
             <div class = "card-body">
               <div class = "chart">
-                <div id = "chart1"></div>
+                <div id="heatmap"></div>
               </div>
             </div>
           </div>
         </div>
       </div>
+
+      <!-- Volume Chart -->
       <div class="row mt-5">
         <div class="col-xl-8 mb-5 mb-xl-0">
-          <div class="card-bollinger bg-gradient-dark shadow">
+          <div class="card-bollinger bg-gradient-dark shadow-dark">
             <div class="card-header bg-transparent">
               <div class="row align-items-center">
                 <div class="col">
@@ -393,13 +329,14 @@
             </div>
             <div class = "card-body">
               <div class = "chart">
-                <div id = "volume" class="bg-gradient-dark"></div>
               </div>
             </div>
           </div>
         </div>
+
+        <!-- ETH-BTC Chart -->
         <div class="col-xl-4">
-          <div class="card-moving-average bg-gradient-dark shadow">
+          <div class="card-moving-average bg-gradient-dark shadow-dark">
             <div class="card-header bg-transparent">
               <div class="row align-items-center">
                 <div class="col">
@@ -408,15 +345,16 @@
             </div>
             <div class = "card-body">
               <div class = "chart">
-                <div id = "technical" class="bg-gradient-dark"></div>
               </div>
             </div>
           </div>
         </div>
       </div>
+
+      <!-- News Articles -->
       <div class="row mt-6">
         <div class="col-xl-8 mb-5 mb-xl-0">
-          <div class="card bg-gradient-dark shadow">
+          <div class="card bg-gradient-dark shadow-dark">
             <div class="card-header bg-transparent border-0 bg-gradient-dark">
               <div class="row align-items-center">
                 <div class="col">
@@ -428,8 +366,7 @@
               </div>
             </div>
             <div class="table-responsive">
-              <!-- Projects table -->
-              <table class="table align-items-center table-flush bg-gradient-dark">
+              <table class="table align-items-center table-dark bg-gradient-dark">
                 <tbody>
                   <tr>
                     <th scope="row">
@@ -506,9 +443,11 @@
             </div>
           </div>
         </div>
+
+        <!-- Tweets -->
         <div class="col-xl-4">
-          <div class="card shadow">
-            <div class="card-header border-0 bg-gradient-dark">
+          <div class="card bg-gradient-dark shadow-dark">
+            <div class="card-header bg-transparent border-0 bg-gradient-dark">
               <div class="row align-items-center">
                 <div class="col">
                   <h3 class="mb-0 text-muted">Tweets</h3>
@@ -519,8 +458,7 @@
               </div>
             </div>
             <div class="table-responsive">
-              <!-- Projects table -->
-              <table class="table align-items-center table-flush bg-gradient-dark">
+              <table class="table align-items-center table-dark bg-gradient-dark">
                 <tbody>
                   <tr>
                     <th scope="row">
@@ -619,29 +557,49 @@
         </div>
       </div>
 
+      <div class="row mt-7">
+        <div class="col-xl-8 mb-5 mb-xl-0">
+
+          <div class="card-recommendation bg-gradient-dark shadow-dark">
+            <div class="card-header bg-transparent">
+                <div class="row align-items-center">
+                <div class="col">
+                  <h3 class="text-muted mb-0">Recommendations</h3>
+                </div>
+              </div>
+            </div>
+            <div class = "card-body">
+              <div class = "recommendations">
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
       <!-- Footer -->
       <footer class="footer bg-gradient-dark">
         <div class="row align-items-center justify-content-xl-between">
+          <!--<div class="col-xl-6">-->
+            <!--<div class="copyright text-center text-xl-left text-muted">-->
+              <!--&copy; 2018 <a href="https://www.creative-tim.com" class="font-weight-bold ml-1" target="_blank">FinPro</a>-->
+            <!--</div>-->
+          <!--</div>-->
           <div class="col-xl-6">
-            <div class="copyright text-center text-xl-left text-muted">
-              &copy; 2018 <a href="https://www.creative-tim.com" class="font-weight-bold ml-1" target="_blank">FinPro</a>
-            </div>
-          </div>
-          <div class="col-xl-6">
-            <ul class="nav nav-footer justify-content-center justify-content-xl-end">
-              <li class="nav-item">
-                <a href="https://www.creative-tim.com" class="nav-link" target="_blank">Ticker Tape Widget by Tradingview</a>
-              </li>
-              <li class="nav-item">
-                <a href="https://www.creative-tim.com/presentation" class="nav-link" target="_blank">About Us</a>
-              </li>
-            </ul>
+            <!--<ul class="nav nav-footer justify-content-center justify-content-xl-end">-->
+              <!--<li class="nav-item">-->
+                <!--<a href="https://www.creative-tim.com" class="nav-link" target="_blank">Blog</a>-->
+              <!--</li>-->
+              <!--<li class="nav-item">-->
+                <!--<a href="https://www.creative-tim.com/presentation" class="nav-link" target="_blank">About Us</a>-->
+              <!--</li>-->
+            <!--</ul>-->
           </div>
         </div>
       </footer>
     </div>
   </div>
-  <!-- Argon Scripts -->
+
   <!-- Core -->
   <script src="assets/vendor/jquery/dist/jquery.min.js"></script>
   <script src="assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
@@ -653,9 +611,14 @@
   <!-- Argon JS -->
   <script src="assets/js/argon.js?v=1.0.0"></script>
   <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+  <!--<script src="https://d3js.org/d3-queue.v3.min.js"></script>-->
+  <!--<script src="http://d3js.org/d3.v3.min.js"></script>-->
+  <!--<script src="http://d3js.org/topojson.v1.min.js"></script>-->
+
+  <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
   <script src="https://d3js.org/d3-queue.v3.min.js"></script>
-  <script src="http://d3js.org/d3.v3.min.js"></script>
-  <script src="http://d3js.org/topojson.v1.min.js"></script>
+  <script src="https://d3js.org/topojson.v1.min.js"></script>
+  <script src="assets/js/heatmap.js"></script>
 
   <!-- HighStock JS -->
   <script src="assets/js/highstock.js"></script>
@@ -671,6 +634,15 @@
   <script src="assets/js/csheader.js"></script>
   <script src="assets/js/csdataprep.js"></script>
   <script src="assets/js/csmain.js"></script>
+
+  <!-- Stock Quotes JS -->
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+  <script type="text/javascript" src="assets/js/jquery.stockquotes.js"></script>
+  <script type="text/javascript">
+      $(document).ready(function () {
+        $('.stock-quote').stockQuote();
+      });
+  </script>
 </body>
 
 </html>

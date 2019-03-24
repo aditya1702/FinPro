@@ -7,6 +7,9 @@
     <orderEntry type="library" name="R Skeletons" level="application" />
     <orderEntry type="library" name="R User Library" level="project" />
     <orderEntry type="module" module-name="StockStories" />
+    <orderEntry type="module" module-name="real-time-stocks" />
+    <orderEntry type="module" module-name="stocks-dashboard" />
+    <orderEntry type="module" module-name="jquery-stockquotes" />
   </component>
   <component name="TestRunnerService">
     <option name="projectConfiguration" value="py.test" />

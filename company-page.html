@@ -16,6 +16,7 @@
   <link href="assets/vendor/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
   <!-- Argon CSS -->
   <link type="text/css" href="assets/css/argon.css?v=1.0.0" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="assets/css/jquery.stockquotes.css" />
   <link href="assets/css/cschart.css" rel="stylesheet">
 </head>
 
@@ -53,18 +54,6 @@
           </div>
         </div>
 
-        <!-- Form -->
-        <form class="mt-4 mb-3 d-md-none">
-          <div class="input-group input-group-rounded input-group-merge">
-            <input type="search" class="form-control form-control-rounded form-control-prepended" placeholder="Search" aria-label="Search">
-            <div class="input-group-prepend">
-              <div class="input-group-text">
-                <span class="fa fa-search"></span>
-              </div>
-            </div>
-          </div>
-        </form>
-
         <!-- Navigation -->
         <ul class="navbar-nav">
           <li class="nav-item">
@@ -81,6 +70,19 @@
             <a class="nav-link" href="profile.html">
               <i class="ni ni-single-02 text-yellow"></i> <span style="color: darkorange">Account</span>
             </a>
+          </li>
+          <li style="margin-top: 15px;margin-left: 15px">
+            <!-- Form -->
+            <form class="navbar-search navbar-search-dark form-inline mr-3 d-none d-md-flex ml-lg-auto">
+              <div class="form-group mb-0">
+                <div class="input-group input-group-alternative">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" ><i class="fas fa-search"></i></span>
+                  </div>
+                  <input class="form-control" placeholder = "Search" type="text" style="width: 150px;height: 50px;">
+                </div>
+              </div>
+            </form>
           </li>
         </ul>
 
@@ -146,18 +148,6 @@
             <!--}-->
           <!--</script>-->
 
-        <!-- Form -->
-        <!--<form class="navbar-search navbar-search-dark form-inline mr-3 d-none d-md-flex ml-lg-auto">-->
-          <!--<div class="form-group mb-0">-->
-            <!--<div class="input-group input-group-alternative">-->
-              <!--<div class="input-group-prepend">-->
-                <!--<span class="input-group-text"><i class="fas fa-search"></i></span>-->
-              <!--</div>-->
-              <!--<input class="form-control" placeholder="Search" type="text">-->
-            <!--</div>-->
-          <!--</div>-->
-        <!--</form>-->
-
          <!--User-->
         <ul class="navbar-nav align-items-center d-none d-md-flex">
           <li class="nav-item dropdown">
@@ -192,7 +182,7 @@
                 <span>Support</span>
               </a>
               <div class="dropdown-divider"></div>
-              <a href="#!" class="dropdown-item">
+              <a href="login.html" class="dropdown-item">
                 <i class="ni ni-user-run"></i>
                 <span>Logout</span>
               </a>
@@ -207,10 +197,11 @@
     <div class="header bg-gradient-dark pb-8 pt-5 pt-md-8">
       <div class="container-fluid">
         <div class="header-body">
+
           <!-- Card stats -->
           <div class="row">
             <div class="col-xl-3 col-lg-6">
-              <div class="card card-stats mb-4 mb-xl-0 bg-gradient-dark">
+              <div class="card shadow-dark card-stats mb-4 mb-xl-0 bg-gradient-dark">
                 <div class="card-body">
                   <div class="row">
                     <div class="col">
@@ -227,7 +218,7 @@
               </div>
             </div>
             <div class="col-xl-3 col-lg-6">
-              <div class="card card-stats mb-4 mb-xl-0 bg-gradient-dark">
+              <div class="card shadow-dark card-stats mb-4 mb-xl-0 bg-gradient-dark">
                 <div class="card-body">
                   <div class="row">
                     <div class="col">
@@ -244,7 +235,7 @@
               </div>
             </div>
             <div class="col-xl-3 col-lg-6">
-              <div class="card card-stats mb-4 mb-xl-0 bg-gradient-dark">
+              <div class="card shadow-dark card-stats mb-4 mb-xl-0 bg-gradient-dark">
                 <div class="card-body">
                   <div class="row">
                     <div class="col">
@@ -261,7 +252,7 @@
               </div>
             </div>
             <div class="col-xl-3 col-lg-6">
-              <div class="card card-stats mb-4 mb-xl-0 bg-gradient-dark">
+              <div class="card shadow-dark card-stats mb-4 mb-xl-0 bg-gradient-dark">
                 <div class="card-body">
                   <div class="row">
                     <div class="col">
@@ -285,26 +276,17 @@
         </div>
       </div>
     </div>
+
     <!-- Page content -->
     <div class="container-fluid mt--7 bg-gradient-dark">
       <div class="row">
         <div class="col-xl-8 mb-5 mb-xl-0">
-          <div class="card-candlestick bg-gradient-dark shadow">
+
+          <!-- Candlestick Chart -->
+          <div class="card-candlestick bg-gradient-dark shadow-dark">
             <div class="card-header bg-transparent">
               <div class="row align-items-center">
                 <div class="col">
-                  <!--<div class="pagetitle">-->
-                    <!--<h1 id="stkname" style="float: left">AAPL</h1>-->
-                  <!--</div>-->
-                  <!--<div id="overtext">-->
-                      <!--<table>-->
-                        <!--<tr class="obody"> <td class="ocol0">Price</td> <td class="ocol1">1071.15 <span class="poscol">(+0.58%)</span></td> </tr>-->
-                        <!--<tr class="obody"> <td class="ocol0">Sector</td> <td class="ocol1">Technology</td> </tr>-->
-                        <!--<tr class="obody"> <td class="ocol0">Industry</td> <td class="ocol1">Consumer</td> </tr>-->
-                        <!--<tr class="obody"> <td class="ocol0">Market Cap</td> <td class="ocol1">270000 Cr</a></div>-->
-                        <!--<tr class="obody"> <td class="ocol0">Category</td> <td class="ocol1">Large Cap</a></div>-->
-                      <!--</table>-->
-                  <!--</div>-->
                   <div id = "option">
                     <input id="oneM" name="1M" type="button" value="1M"/>
                     <input id="threeM" name="3M" type="button" value="3M" />
@@ -331,9 +313,11 @@
           </div>
         </div>
       </div>
+
+      <!-- Volume Chart -->
       <div class="row mt-5">
         <div class="col-xl-8 mb-5 mb-xl-0">
-          <div class="card-bollinger bg-gradient-dark shadow">
+          <div class="card-bollinger bg-gradient-dark shadow-dark">
             <div class="card-header bg-transparent">
               <div class="row align-items-center">
                 <div class="col">
@@ -347,8 +331,10 @@
             </div>
           </div>
         </div>
+
+        <!-- ETH-BTC Chart -->
         <div class="col-xl-4">
-          <div class="card-moving-average bg-gradient-dark shadow">
+          <div class="card-moving-average bg-gradient-dark shadow-dark">
             <div class="card-header bg-transparent">
               <div class="row align-items-center">
                 <div class="col">
@@ -363,9 +349,11 @@
           </div>
         </div>
       </div>
+
+      <!-- News Articles -->
       <div class="row mt-6">
         <div class="col-xl-8 mb-5 mb-xl-0">
-          <div class="card bg-gradient-dark shadow">
+          <div class="card bg-gradient-dark shadow-dark">
             <div class="card-header bg-transparent border-0 bg-gradient-dark">
               <div class="row align-items-center">
                 <div class="col">
@@ -377,8 +365,7 @@
               </div>
             </div>
             <div class="table-responsive">
-              <!-- Projects table -->
-              <table class="table align-items-center table-flush bg-gradient-dark">
+              <table class="table align-items-center table-dark bg-gradient-dark">
                 <tbody>
                   <tr>
                     <th scope="row">
@@ -455,9 +442,11 @@
             </div>
           </div>
         </div>
+
+        <!-- Tweets -->
         <div class="col-xl-4">
-          <div class="card shadow">
-            <div class="card-header border-0 bg-gradient-dark">
+          <div class="card bg-gradient-dark shadow-dark">
+            <div class="card-header bg-transparent border-0 bg-gradient-dark">
               <div class="row align-items-center">
                 <div class="col">
                   <h3 class="mb-0 text-muted">Tweets</h3>
@@ -468,8 +457,7 @@
               </div>
             </div>
             <div class="table-responsive">
-              <!-- Projects table -->
-              <table class="table align-items-center table-flush bg-gradient-dark">
+              <table class="table align-items-center table-dark bg-gradient-dark">
                 <tbody>
                   <tr>
                     <th scope="row">
@@ -568,34 +556,134 @@
         </div>
       </div>
 
+      <div class="row mt-7">
+        <div class="col-xl-8 mb-5 mb-xl-0">
+
+          <div class="card-recommendation bg-gradient-dark shadow-dark">
+            <div class="card-header bg-transparent">
+                <div class="row align-items-center">
+                <div class="col">
+                  <h3 class="text-muted mb-0">Recommendations</h3>
+                </div>
+              </div>
+            </div>
+            <div class = "card-body">
+              <div class = "recommendations">
+                  <div class="row">
+                    <div class="col-xl-3 col-lg-6">
+                      <a href="#">
+                        <div class="card shadow-dark card-stats mb-4 mb-xl-0 bg-gradient-dark">
+                        <span class="img__description"></span>
+                        <div class="card-body" style="height: 150px">
+                          <div class="row">
+                            <div class="col">
+                              <span class="title text-white">Twitter</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                              <div class="tooltip-quotes">
+                                <i class="ni ni-tag text-white"></i><span class="tooltiptext">70% of analysts agree that Twitter is a buy</span>
+                              </div>
+                            </div>
+                            <div class="col-auto" style="margin-top: 20px">
+                                <h1><span class="stock-quote" data-symbol="TWTR"></span></h1>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      </a>
+                    </div>
+                    <div class="col-xl-3 col-lg-6">
+                      <a href="#">
+                        <div class="card shadow-dark card-stats mb-4 mb-xl-0 bg-gradient-dark">
+                        <span class="img__description"></span>
+                        <div class="card-body" style="height: 150px">
+                          <div class="row">
+                            <div class="col">
+                              <span class="title text-white">Facebook</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                              <div class="tooltip-quotes">
+                                <i class="ni ni-tag text-white"></i><span class="tooltiptext">80% of analysts agree that Facebook is a sell</span>
+                              </div>
+                            </div>
+                            <div class="col-auto" style="margin-top: 20px">
+                                <h1><span class="stock-quote" data-symbol="FB"></span></h1>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      </a>
+                    </div>
+                    <div class="col-xl-3 col-lg-6">
+                      <a href="#">
+                        <div class="card shadow-dark card-stats mb-4 mb-xl-0 bg-gradient-dark">
+                        <span class="img__description"></span>
+                        <div class="card-body" style="height: 150px">
+                          <div class="row">
+                            <div class="col">
+                              <span class="title text-white">Netflix</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                              <div class="tooltip-quotes">
+                                <i class="ni ni-tag text-white"></i><span class="tooltiptext">70% of analysts agree that Netflix is a buy</span>
+                              </div>
+                            </div>
+                            <div class="col-auto" style="margin-top: 20px">
+                                <h1><span class="stock-quote" data-symbol="NFLX"></span></h1>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      </a>
+                    </div>
+                    <div class="col-xl-3 col-lg-6">
+                      <a href="#">
+                        <div class="card shadow-dark card-stats mb-4 mb-xl-0 bg-gradient-dark">
+                        <span class="img__description"></span>
+                        <div class="card-body" style="height: 150px">
+                          <div class="row">
+                            <div class="col">
+                              <span class="title text-white">Amazon</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                              <div class="tooltip-quotes">
+                                <i class="ni ni-tag text-white"></i><span class="tooltiptext">60% of analysts agree that Amazon is neutral</span>
+                              </div>
+                            </div>
+                            <div class="col-auto" style="margin-top: 20px">
+                                <h1><span class="stock-quote" data-symbol="AMZN"></span></h1>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      </a>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
       <!-- Footer -->
       <footer class="footer bg-gradient-dark">
         <div class="row align-items-center justify-content-xl-between">
+          <!--<div class="col-xl-6">-->
+            <!--<div class="copyright text-center text-xl-left text-muted">-->
+              <!--&copy; 2018 <a href="https://www.creative-tim.com" class="font-weight-bold ml-1" target="_blank">FinPro</a>-->
+            <!--</div>-->
+          <!--</div>-->
           <div class="col-xl-6">
-            <div class="copyright text-center text-xl-left text-muted">
-              &copy; 2018 <a href="https://www.creative-tim.com" class="font-weight-bold ml-1" target="_blank">FinPro</a>
-            </div>
-          </div>
-          <div class="col-xl-6">
-            <ul class="nav nav-footer justify-content-center justify-content-xl-end">
-              <li class="nav-item">
-                <a href="https://www.creative-tim.com" class="nav-link" target="_blank">Ticker Tape Widget by Tradingview</a>
-              </li>
-              <li class="nav-item">
-                <a href="https://www.creative-tim.com/presentation" class="nav-link" target="_blank">About Us</a>
-              </li>
-            </ul>
+            <!--<ul class="nav nav-footer justify-content-center justify-content-xl-end">-->
+              <!--<li class="nav-item">-->
+                <!--<a href="https://www.creative-tim.com" class="nav-link" target="_blank">Blog</a>-->
+              <!--</li>-->
+              <!--<li class="nav-item">-->
+                <!--<a href="https://www.creative-tim.com/presentation" class="nav-link" target="_blank">About Us</a>-->
+              <!--</li>-->
+            <!--</ul>-->
           </div>
         </div>
       </footer>
     </div>
   </div>
-  <!-- Argon Scripts -->
+
   <!-- Core -->
   <script src="assets/vendor/jquery/dist/jquery.min.js"></script>
   <script src="assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-  <!-- Argon JS -->
-  <script src="assets/js/argon.js?v=1.0.0"></script>
 
   <!-- Optional JS -->
   <script src="assets/vendor/chart.js/dist/Chart.min.js"></script>
@@ -622,6 +710,15 @@
   <script src="assets/js/csheader.js"></script>
   <script src="assets/js/csdataprep.js"></script>
   <script src="assets/js/csmain.js"></script>
+
+  <!-- Stock Quotes JS -->
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+  <script type="text/javascript" src="assets/js/jquery.stockquotes.js"></script>
+  <script type="text/javascript">
+      $(document).ready(function () {
+        $('.stock-quote').stockQuote();
+      });
+  </script>
 </body>
 
 </html>

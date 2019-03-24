@@ -2,5 +2,8 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../jquery-stockquotes" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../real-time-stocks" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../stocks-dashboard" vcs="Git" />
   </component>
 </project>

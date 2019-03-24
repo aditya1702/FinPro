@@ -1,0 +1,93 @@
+/* Container
+/* =============================================== */
+#tooltip-sectors h3 {
+        margin:2px;
+        font-size:14px;
+}
+#tooltip-sectors {
+        position: absolute;           
+        background:rgba(255,255,255,1);
+        text-align: left;
+        border:1px;
+        border-radius:5px;
+        font: 12px sans-serif;        
+        width:auto;
+        padding:4px;
+        color:black;
+        opacity:0;
+        pointer-events: none;
+        margin-top: -700px;
+        margin-right: 1000px;
+        margin-left: -300px;
+}
+#tooltip-sectors table{
+        table-layout:fixed;
+}
+#tooltip-sectors tr td{
+        padding:0;
+        margin:0;
+}
+
+#heatmap {
+  position: relative;
+  width: 1000px;
+  height: 1000px;
+    margin-left: -25px;
+    margin-top: -63px;
+}
+
+text {
+  pointer-events: none;
+  font-family: sans-serif;
+}
+
+.grandparent text {
+  font-weight: bold;
+}
+
+rect {
+  stroke: #000;
+  stroke-width: 1px;
+}
+
+rect.parent,
+.grandparent rect {
+  stroke-width: 0px;
+}
+
+.grandparent rect {
+  fill: #fff;
+}
+
+.grandparent:hover rect {
+  fill-opacity: .5;
+}
+
+rect.parent {
+  cursor: pointer;
+}
+
+.children rect.parent {
+  cursor: zoom-in;
+}
+
+.grandparent rect {
+  cursor: zoom-out;
+}
+
+rect.parent {
+  fill-opacity: .5;
+}
+
+rect.parent:hover {
+  fill: #bbb;
+  fill-opacity: .2;
+}
+
+.children rect.parent {
+  fill-opacity: 0;
+}
+
+.children:hover rect.parent {
+  fill-opacity: .2;
+}

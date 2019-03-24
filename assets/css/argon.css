@@ -2204,7 +2204,7 @@ pre code
 .table .thead-dark th
 {
     color: #f8f9fe;
-    border-color: #1f3a68; 
+    border-color: #1f3a68;
     background-color: #172b4d;
 }
 
@@ -2224,7 +2224,7 @@ pre code
 .table-dark td,
 .table-dark thead th
 {
-    border-color: #1f3a68;
+    border-color: black;
 }
 .table-dark.table-bordered
 {
@@ -2852,8 +2852,7 @@ textarea.form-control
     {
         display: flex;
 
-        margin-bottom: 0; 
-
+        margin-bottom: 0;
         flex: 0 0 auto;
         flex-flow: row wrap;
         align-items: center;
@@ -5241,7 +5240,7 @@ input[type='button'].btn-block
 {
     position: relative;
     /*border-color: springgreen;*/
-    border-bottom: 2px solid darkorange;
+    border-bottom: 2px solid lightgreen;
 
     display: flex;
 
@@ -5325,7 +5324,7 @@ input[type='button'].btn-block
     padding: .25rem .75rem;
 
     border: 1px solid transparent;
-    border-radius: .375rem; 
+    border-radius: .375rem;
     background-color: transparent;
 }
 .navbar-toggler:hover,
@@ -5707,9 +5706,24 @@ input[type='button'].btn-block
     word-wrap: break-word;
 
     border: 1px solid rgba(0, 0, 0, .05);
-    border-radius: .375rem; 
-    background-color: #fff;
-    border-color: springgreen;
+    border-radius: .375rem;
+    background-color: darkgray;
+    background-clip: border-box;
+}
+
+.card-watchlist
+{
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+
+    min-width: 0;
+
+    word-wrap: break-word;
+    border: 1px solid rgba(0, 0, 0, .05);
+    border-radius: .375rem;
+    background-color: darkgray;
     background-clip: border-box;
 }
 
@@ -5729,7 +5743,7 @@ input[type='button'].btn-block
     border-radius: .375rem;
     background-color: #fff;
     margin-top: -10px;
-    border-color: springgreen;
+    /*border-color: springgreen;*/
     background-clip: border-box;
 }
 
@@ -5746,8 +5760,44 @@ input[type='button'].btn-block
 
     border: 1px solid rgba(0, 0, 0, .05);
     border-radius: .375rem;
-    border-color: springgreen;
-    background-color: #fff;
+    /*border-color: springgreen;*/
+    background-color: darkgray;
+    background-clip: border-box;
+}
+
+.card-sector-treemap
+{
+    position: relative;
+    width: 945px;
+    display: flex;
+    flex-direction: column;
+
+    min-width: 0;
+
+    word-wrap: break-word;
+
+    border: 1px solid rgba(0, 0, 0, .05);
+    border-radius: .375rem;
+    /*border-color: springgreen;*/
+    background-color: darkgray;
+    background-clip: border-box;
+}
+
+.card-recommendation
+{
+    position: relative;
+    width: 945px;
+    display: flex;
+    flex-direction: column;
+
+    min-width: 0;
+
+    word-wrap: break-word;
+
+    border: 1px solid rgba(0, 0, 0, .05);
+    border-radius: .375rem;
+    /*border-color: springgreen;*/
+    background-color: darkgray;
     background-clip: border-box;
 }
 
@@ -5764,7 +5814,7 @@ input[type='button'].btn-block
 
     border: 1px solid rgba(0, 0, 0, .05);
     border-radius: .375rem;
-    border-color: springgreen;
+    /*border-color: springgreen;*/
     background-color: #fff;
     background-clip: border-box;
 }
@@ -5783,7 +5833,7 @@ input[type='button'].btn-block
     border: 1px solid rgba(0, 0, 0, .05);
     border-radius: .375rem;
     background-color: #fff;
-    border-color: springgreen;
+    /*border-color: springgreen;*/
     background-clip: border-box;
 }
 
@@ -5843,6 +5893,40 @@ input[type='button'].btn-block
     border-bottom: 1px solid rgba(0, 0, 0, .05); 
     background-color: #fff;
 }
+
+.card-body-login
+{
+    padding: 1.5rem;
+    flex: 1 1 auto;
+}
+
+.card-header-login
+{
+    margin-bottom: 0;
+    padding: 1.25rem 1.5rem;
+
+    border-bottom: 1px solid rgba(0, 0, 0, .05);
+    background-color: #fff;
+}
+
+.card-login
+{
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+
+    min-width: 0;
+
+    word-wrap: break-word;
+
+    border: 1px solid rgba(0, 0, 0, .05);
+    border-radius: .375rem;
+    background-color: darkgray;
+    background-clip: border-box;
+    /*height: 10px;*/
+}
+
 .card-header:first-child
 {
     border-radius: calc(.375rem - 1px) calc(.375rem - 1px) 0 0;
@@ -9527,6 +9611,11 @@ button.bg-darker:focus
 .shadow-sm
 {
     box-shadow: 0 0 .5rem rgba(136, 152, 170, .075) !important;
+}
+
+.shadow-dark
+{
+    box-shadow: 0 0 2rem 0 black;
 }
 
 .shadow,
@@ -14777,7 +14866,7 @@ a.text-darker:focus
 
 .text-muted
 {
-    color: deepskyblue !important;
+    color: mediumspringgreen !important;
 }
 
 .text-black-50
@@ -17548,6 +17637,12 @@ a.btn-icon-only
     height: 465px;
 }
 
+.recommendations
+{
+    position: relative;
+    height: 215px;
+}
+
 .chart-sm
 {
     height: 230px;
@@ -18518,8 +18613,7 @@ textarea[resize='horizontal']
 
 .input-group-alternative
 {
-    transition: box-shadow .15s ease; 
-
+    transition: box-shadow .15s ease;
     border: 0;
     box-shadow: 0 1px 3px rgba(50, 50, 93, .15), 0 1px 0 rgba(0, 0, 0, .02);
 }
@@ -19577,7 +19671,7 @@ textarea[resize='horizontal']
     {
         position: fixed;
         /*border-color: springgreen;*/
-        border-right: 2px solid darkorange;
+        border-right: 2px solid lightgreen;
         top: 0;
         bottom: 0;
 
