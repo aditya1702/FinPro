@@ -79,7 +79,9 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text" ><i class="fas fa-search"></i></span>
                   </div>
-                  <input class="form-control" placeholder = "Search" type="text" style="width: 150px;height: 50px;">
+                  <input id="org" name="org" value="" class="form-control" placeholder = "Search" type="text" style="width: 150px;height: 50px;">
+                  <script type="text/javascript">function search(){
+                window.location = '/company-page/?org='+document.getElementById('org').value}</script>
                 </div>
               </div>
             </form>
@@ -206,7 +208,7 @@
                   <div class="row">
                     <div class="col">
                       <h5 class="card-title text-uppercase text-muted mb-0">Ticker Symbol</h5>
-                      <span class="h2 font-weight-bold mb-0" style="color: yellow;">AAPL</span>
+                      <span class="h2 font-weight-bold mb-0" style="color: yellow;">{{ org_stock }}</span>
                     </div>
                     <div class="col-auto">
                       <div class="icon icon-shape bg-danger text-white rounded-circle shadow">
@@ -713,9 +715,16 @@
   <script src="assets/js/export-data.js"></script>
   <script src="https://code.highcharts.com/highcharts.js"></script>
 
-  <!-- Candlestick Chart JS -->
   <script src="assets/js/volume.js"></script>
   <script src="assets/js/technical.js"></script>
+
+  <!-- Candlestick Chart JS -->
+  <!--<script type="text/javascript">-->
+    <!--d3.csv("./assets/js/stockdata.csv", genType, function(data) {-->
+      <!--genRaw         = data;-->
+      <!--mainjs();-->
+    <!--});-->
+  <!--</script>-->
   <script src="assets/js/cschart.js"></script>
   <script src="assets/js/csbars.js"></script>
   <script src="assets/js/csheader.js"></script>

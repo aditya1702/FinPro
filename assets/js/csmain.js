@@ -10,7 +10,6 @@ var genRaw, genData;
       genRaw         = data;
       mainjs();
     });
-
 }());
 
 function toSlice(data) { return data.slice(-TDays[TPeriod]); }
@@ -87,8 +86,6 @@ function displayCS() {
     var chart       = cschart().Bheight(460);
     d3.select("#chart1").call(chart);
     var chart       = barchart().mname("volume").margin(320).MValue("TURNOVER");
-    d3.select("#chart1").datum(genData).call(chart);
-    var chart       = barchart().mname("sigma").margin(400).MValue("VOLATILITY");
     d3.select("#chart1").datum(genData).call(chart);
     hoverAll();
 }
