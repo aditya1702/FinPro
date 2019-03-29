@@ -1,0 +1,5 @@
+django_allauth==0.35.0
+Django==2.0.8
+newsapi_python==0.0.2
+newsapi==0.1.1
+python_twitter==3.4.1
