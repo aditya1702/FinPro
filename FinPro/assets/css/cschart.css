@@ -1,0 +1,399 @@
+/* Container
+/* =============================================== */
+#demobox {
+    margin: auto;
+    min-height: 310px;
+    min-width: 700px;
+    max-width: 800px;
+    padding-left: 10px;
+    color: #333;
+}
+
+#csbox {
+    color: #fff;
+    background: #292f3b;
+    margin: 10px auto;
+    width: 670px;
+    height: 500px;
+    font-size: small;
+    text-align: center; }
+
+tr:hover td {
+    background: black;
+    cursor: pointer;
+}
+
+/*img {*/
+  /*background: url(https://www.google.co.in/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=2ahUKEwjc8LPi8qLhAhUJ7IMKHSXwD60QjRx6BAgBEAU&url=https%3A%2F%2Fwww.altran.com%2Fus%2Fen%2Ffinance%2F&psig=AOvVaw1EPHCNNedkzVkQNHuMt4_P&ust=1553795852299515) no-repeat scroll 0 0;*/
+/*}*/
+
+.pagetitle {
+  margin-top: 3px;
+  text-align: left; }
+
+.pagetitle h1 {
+    margin: 0;
+    margin-top: -6px;
+    text-align: left;
+    height: 20px;
+    margin-bottom: 10px;
+    font-size: 190%;
+    margin-left: 0px;
+    color: darkorange;
+}
+
+.poscol {
+  color: yellowgreen; }
+
+.negcol {
+  color: crimson; }
+
+#overview {
+  width: 310px;
+  min-height: 500px;
+  float: left; }
+
+#overtext {
+  width: 310px;
+  min-height: 100px;
+    margin-left: 100px;
+}
+
+#overtext td {
+  vertical-align: middle; }
+
+.ohead {
+  height: 50px;
+  color: white; }
+
+.ocol0 {
+  width: 100px;
+  text-align: left; }
+
+.ocol1 {
+  width: 200px;
+  text-align: left; }
+
+.obody {
+  height: 20px;
+  color: white; }
+
+#volume {
+    margin-left: -22px;
+    margin-right: -22px;
+    margin-top: -3px;
+}
+
+#technical {
+    margin-left: -22px;
+    margin-right: -22px;
+    margin-top: -3px;
+}
+
+svg {
+    font: 10px sans-serif;
+}
+
+.axis path,
+.axis line {
+    fill: none;
+    stroke: #000;
+    shape-rendering: crispEdges;
+}
+
+path.candle {
+    stroke: #000000;
+}
+
+path.candle.body {
+    stroke-width: 0;
+}
+
+path.candle.up {
+    fill: #00AA00;
+    stroke: #00AA00;
+}
+
+path.candle.down {
+    fill: #FF0000;
+    stroke: #FF0000;
+}
+
+
+.state{
+    fill: none;
+    stroke: #a9a9a9;
+    stroke-width: 1;
+}
+
+.state:hover{
+    fill-opacity:0.5;
+}
+
+#tooltip {
+    position: absolute;
+    text-align: center;
+    padding: 5px;
+    margin-top: -200px;
+    margin-right: 1000px;
+    margin-left: -300px;
+    font: 12px sans-serif;
+    background: lightsteelblue;
+    border: 1px;
+    border-radius: 2px;
+    pointer-events: none;
+}
+#tooltip h4{
+    margin:0;
+    font-size:14px;
+    color: springgreen;
+}
+#tooltip{
+    background:rgba(0,0,0,0.9);
+    border:1px solid grey;
+    border-radius:5px;
+    font-size:12px;
+    width:auto;
+    padding:4px;
+    color:white;
+    opacity:0;
+}
+#tooltip table{
+    table-layout:fixed;
+}
+#tooltip tr td{
+    padding:0;
+    margin:0;
+}
+#tooltip tr td:nth-child(1){
+    width:50px;
+}
+#tooltip tr td:nth-child(2){
+    text-align:center;
+}
+
+/*#particles-js canvas {*/
+    /*display: block;*/
+    /*vertical-align: bottom;*/
+    /*-webkit-transform: scale(1);*/
+    /*-ms-transform: scale(1);*/
+    /*transform: scale(1);*/
+    /*opacity: 1;*/
+    /*-webkit-transition: opacity .8s ease, -webkit-transform 1.4s ease;*/
+    /*transition: opacity .8s ease, transform 1.4s ease*/
+/*}*/
+
+/*#particles-js {*/
+    /*width: 100%;*/
+    /*height: 100%;*/
+    /*position: fixed;*/
+    /*z-index: -10;*/
+    /*top: 0;*/
+    /*left: 0*/
+/*}*/
+
+canvas {
+  display: block;
+  vertical-align: bottom;
+}
+
+#aa_particles {
+  z-index: 4;
+  height: 500px;
+  height: 100vh;
+  background: linear-gradient(87deg, #212529 0, #212229 100%);
+}
+
+.aa_sec {
+  position: absolute;
+  z-index: 5;
+  top: 50%;
+  /*right: 0;*/
+  /*left: 0;*/
+  /*margin: 0  auto;*/
+    margin-left: 430px;
+    margin-top: -260px;
+}
+
+.aa_sec_2 {
+  position: absolute;
+  z-index: 5;
+    margin-left: 80px;
+    width: 1000px;
+    margin-top: 250px;
+}
+
+.aa_txt {
+  font: 100 10vh/1 Roboto;
+  text-align: center;
+  background: linear-gradient(87deg, #212529 0, #212229 100%);
+    margin-top: -60px;
+}
+
+.aa_inner {
+  padding: 0 1rem;
+  text-transform: uppercase;
+  background: #ffffff;
+}
+
+.aa_of {
+  padding: 1rem;
+  color: #ffffff;
+  background: linear-gradient(87deg, #212529 0, #212229 100%);
+}
+
+.aa_of_2 {
+  padding: 1rem;
+  color: #ffffff;
+  background: linear-gradient(87deg, #212529 0, #212229 100%);
+}
+
+#typing{
+    /*font: 20 20px/0.8 'Great Vibes', Helvetica, sans-serif;*/
+    font: 100 10vh/1 Roboto;
+    text-align: center;
+    background: linear-gradient(87deg, #212529 0, #212229 100%);
+    color: springgreen;
+}
+
+#typing-2{
+    font: 20 20px/0.8 'Great Vibes', Helvetica, sans-serif;
+    color: navajowhite;
+}
+
+.aa_txt_2 {
+  font: 100 10vh/1 Roboto;
+  text-align: center;
+  background: linear-gradient(87deg, #212529 0, #212229 100%);
+    margin-top: -60px;
+    /*color: navajowhite;*/
+}
+
+.item {
+      margin-bottom: 10px;
+      line-height: 32px;
+}
+.item .title {
+  width: 160px;
+  display: inline-block;
+  text-align: right;
+  margin-right: 10px;
+}
+
+.stock-quote.up .change {
+  border-bottom-width: 10px;
+}
+.stock-quote.down .change {
+  border-top-width: 10px;
+}
+.stock-quote .change {
+  border-left-width: 8px;
+  border-right-width: 8px;
+}
+
+.tooltip-quotes {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+
+.tooltip-quotes .tooltiptext {
+  visibility: hidden;
+  width: 220px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -60px;
+
+  /* Fade in tooltip - takes 1 second to go from 0% to 100% opac: */
+  opacity: 0;
+  transition: opacity 1s;
+}
+
+.tooltip-quotes:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+
+.img__wrap {
+  position: relative;
+  height: 200px;
+  width: 257px;
+}
+
+.img__description {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: black;
+  color: #fff;
+  visibility: hidden;
+  opacity: 0;
+
+  /* transition effect. not necessary */
+  transition: opacity .2s, visibility .2s;
+}
+
+.card:hover .img__description {
+  visibility: visible;
+    cursor: pointer;
+  opacity: 1;
+}
+
+
+/* Candlestick Chart
+/* =============================================== */
+#chart1 .grid { stroke-opacity: .3; }
+#chart1 .axis line,
+#chart1 .axis.xaxis path { fill: none; stroke: darkgrey; shape-rendering: crispEdges; }
+#chart1 .tick text { font: 10px sans-serif; fill: darkgrey; stroke-opacity: .3; }
+#chart1 .axis.yaxis path { fill: none; stroke: #292f3b; }
+
+#chart1 .bands rect { fill: darkgrey; fill-opacity: 0; stroke-opacity: 0; pointer-events: all; shape-rendering: crispEdges; }
+#chart1 .bands .hoved { fill-opacity: .6; }
+#chart1 .sticks rect { pointer-events: none; shape-rendering: crispEdges; }
+#chart1 .sticks .rise, #chart1 .candles .rise { fill: green; }
+#chart1 .sticks .fall, #chart1 .candles .fall { fill: red; }
+#chart1 .sticks .hoved { stroke: white; }
+#chart1 .candles .hoved { stroke: white; }
+#chart1 .candles rect { pointer-events: none; shape-rendering: crispEdges; }
+
+#chart1 .bbmn { fill: none; stroke: cyan; stroke-width: 1.5px; pointer-events: none; }
+#chart1 .bbup { fill: none; stroke: green; stroke-width: 1.5px; pointer-events: none; }
+#chart1 .bbdn { fill: none; stroke: crimson; stroke-width: 1.5px; pointer-events: none; }
+
+#chart1 .volumebar { fill: darkgrey; } 
+#chart1 .volumebar rect { pointer-events: none; }
+#chart1 .volumebar .hoved { fill: white; }
+#chart1 .sigmabar { fill: darkgrey; } 
+#chart1 .sigmabar rect { pointer-events: none; }
+#chart1 .sigmabar .hoved { fill: white; }
+
+#option    { width: 250px; height: 25px; float: left; padding-top: 5px; margin-top: 10px;}
+#option input { cursor: pointer; border-radius: 5px; color: #fff; background: #696d75; border: none; }
+#option input {
+                -webkit-box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.75);
+                -moz-box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.75);
+                box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.75);
+              }
+#option .active { cursor: auto; background: #94979d; }
+#option .active {
+                -webkit-box-shadow: none;
+                -moz-box-shadow: none;
+                box-shadow: none;
+              }
+#infobar   { width: 560px; height: 5px; float: right; padding-top: 5px; text-align: left; font-family: sans-serif; margin-top: 10px; color: white}
+.infohead  { width: 140px; height: 25px; margin: 0px 2px; float: left; }
+.infobox   { width: 100px; height: 30px; margin: 0px 2px; float: left; }
+
+#volchart .volbar .volfill { fill: crimson; } 
+#volchart .sigbar .sigfill { fill: crimson; } 
+#volchart input { cursor: pointer; }
