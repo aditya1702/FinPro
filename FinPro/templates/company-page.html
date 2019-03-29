@@ -340,16 +340,55 @@
         </div>
       </div>
 
-      <!-- MACD Chart -->
+      <!-- Technical Indicators Charts -->
       <div class="row mt-5">
           <div class="col-xl-8 mb-5 mb-xl-0">
 
-          <!-- Candlestick Chart -->
           <div class="card-candlestick bg-gradient-dark shadow-dark">
             <div class="card-header-technical bg-transparent">
+                <ul class="navbar-nav align-items-center d-none d-md-flex">
+          <li class="nav-item dropdown">
+            <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <div class="media align-items-center">
+                <span class="avatar avatar-sm rounded-circle bg-gradient-dark">
+                  <i class="ni ni-sound-wave"></i>
+                </span>
+                <div class="media-body ml-2 d-none d-lg-block">
+                  <span class="mb-0 text-white font-weight-bold">Charts</span>
+                </div>
+              </div>
+            </a>
+            <div class="dropdown-menu dropdown-menu-arrow dropdown-menu-right">
+              <div class=" dropdown-header noti-title">
+                <h6 class="text-overflow m-0">Welcome!</h6>
+              </div>
+              <a href="profile.html" class="dropdown-item">
+                <i class="ni ni-single-02"></i>
+                <span>My profile</span>
+              </a>
+              <a href="profile.html" class="dropdown-item">
+                <i class="ni ni-settings-gear-65"></i>
+                <span>Settings</span>
+              </a>
+              <a href="profile.html" class="dropdown-item">
+                <i class="ni ni-calendar-grid-58"></i>
+                <span>Activity</span>
+              </a>
+              <a href="profile.html" class="dropdown-item">
+                <i class="ni ni-support-16"></i>
+                <span>Support</span>
+              </a>
+              <div class="dropdown-divider"></div>
+              <a href="http://localhost:8000/login.html" class="dropdown-item">
+                <i class="ni ni-user-run"></i>
+                <span>Logout</span>
+              </a>
+            </div>
+          </li>
+        </ul>
             </div>
             <div class = "card-body">
-              <div class = "chart">
+              <div class = "chart-technical">
                 <div id = "technical2"></div>
               </div>
             </div>
@@ -361,21 +400,21 @@
       <div class="row mt-6">
         <div class="col-xl-8 mb-5 mb-xl-0">
           <div class="card-bollinger bg-gradient-dark shadow-dark">
-            <div class="card-header bg-transparent">
+            <div class="card-header-technical bg-transparent">
               <div class="row align-items-center">
                 <div class="col">
                 </div>
               </div>
             </div>
             <div class = "card-body">
-              <div class = "chart">
+              <div class = "chart-volume">
                 <div id = "volume" class="bg-gradient-dark"></div>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- ETH-BTC Chart -->
+        <!-- Comparison Chart -->
         <div class="col-xl-4">
           <div class="card-moving-average bg-gradient-dark shadow-dark">
             <div class="card-header bg-transparent">
@@ -529,6 +568,276 @@
   <script src="https://code.highcharts.com/stock/indicators/pivot-points.js"></script>
   <script src="https://code.highcharts.com/stock/indicators/ema.js"></script>
   <script src="https://code.highcharts.com/stock/indicators/macd.js"></script>
+{#  <script src="{% static 'js/technical.js' %}"></script>#}
+  <script type="text/javascript">
+
+    var seriesOptions = [],
+        seriesCounter = 0,
+        names = ['MSFT', 'AAPL', 'GOOG'];
+
+    /**
+     * Create the chart when all data is loaded
+     * @returns {undefined}
+     */
+    function createChart() {
+
+        Highcharts.theme = {
+            colors: ['#2b908f', '#90ee7e', '#f45b5b', '#7798BF', '#aaeeee', '#ff0066',
+                '#eeaaee', '#55BF3B', '#DF5353', '#7798BF', '#aaeeee'],
+            chart: {
+                backgroundColor: {
+                    linearGradient: {x1: 0, y1: 0, x2: 1, y2: 1},
+                    stops: [
+                        [0, '#212529'],
+                        [1, '#212229']
+                    ]
+                },
+                style: {
+                    fontFamily: '\'Unica One\', sans-serif'
+                },
+                plotBorderColor: '#606063'
+            },
+            title: {
+                style: {
+                    color: '#E0E0E3',
+                    textTransform: 'uppercase',
+                    fontSize: '20px'
+                }
+            },
+            subtitle: {
+                style: {
+                    color: '#E0E0E3',
+                    textTransform: 'uppercase'
+                }
+            },
+            xAxis: {
+                gridLineColor: '#707073',
+                labels: {
+                    style: {
+                        color: '#E0E0E3'
+                    }
+                },
+                lineColor: '#707073',
+                minorGridLineColor: '#505053',
+                tickColor: '#707073',
+                title: {
+                    style: {
+                        color: '#A0A0A3'
+
+                    }
+                }
+            },
+            yAxis: {
+                gridLineColor: '#707073',
+                labels: {
+                    style: {
+                        color: '#E0E0E3'
+                    }
+                },
+                lineColor: '#707073',
+                minorGridLineColor: '#505053',
+                tickColor: '#707073',
+                tickWidth: 1,
+                title: {
+                    style: {
+                        color: '#A0A0A3'
+                    }
+                }
+            },
+            tooltip: {
+                backgroundColor: 'rgba(0, 0, 0, 0.85)',
+                style: {
+                    color: '#F0F0F0'
+                }
+            },
+            plotOptions: {
+                series: {
+                    dataLabels: {
+                        color: '#B0B0B3'
+                    },
+                    marker: {
+                        lineColor: '#333'
+                    }
+                },
+                boxplot: {
+                    fillColor: '#505053'
+                },
+                candlestick: {
+                    lineColor: 'white'
+                },
+                errorbar: {
+                    color: 'white'
+                }
+            },
+            legend: {
+                itemStyle: {
+                    color: '#E0E0E3'
+                },
+                itemHoverStyle: {
+                    color: '#FFF'
+                },
+                itemHiddenStyle: {
+                    color: '#606063'
+                }
+            },
+            credits: {
+                style: {
+                    color: '#666'
+                }
+            },
+            labels: {
+                style: {
+                    color: '#707073'
+                }
+            },
+
+            drilldown: {
+                activeAxisLabelStyle: {
+                    color: '#F0F0F3'
+                },
+                activeDataLabelStyle: {
+                    color: '#F0F0F3'
+                }
+            },
+
+            navigation: {
+                buttonOptions: {
+                    symbolStroke: '#DDDDDD',
+                    theme: {
+                        fill: '#505053'
+                    }
+                }
+            },
+
+            // scroll charts
+            rangeSelector: {
+                buttonTheme: {
+                    fill: '#505053',
+                    stroke: '#000000',
+                    style: {
+                        color: '#CCC'
+                    },
+                    states: {
+                        hover: {
+                            fill: '#707073',
+                            stroke: '#000000',
+                            style: {
+                                color: 'white'
+                            }
+                        },
+                        select: {
+                            fill: '#000003',
+                            stroke: '#000000',
+                            style: {
+                                color: 'white'
+                            }
+                        }
+                    }
+                },
+                inputBoxBorderColor: '#505053',
+                inputStyle: {
+                    backgroundColor: '#333',
+                    color: 'silver'
+                },
+                labelStyle: {
+                    color: 'silver'
+                }
+            },
+
+            navigator: {
+                handles: {
+                    backgroundColor: '#666',
+                    borderColor: '#AAA'
+                },
+                outlineColor: '#CCC',
+                maskFill: 'rgba(255,255,255,0.1)',
+                series: {
+                    color: '#7798BF',
+                    lineColor: '#A6C7ED'
+                },
+                xAxis: {
+                    gridLineColor: '#505053'
+                }
+            },
+
+            scrollbar: {
+                barBackgroundColor: '#808083',
+                barBorderColor: '#808083',
+                buttonArrowColor: '#CCC',
+                buttonBackgroundColor: '#606063',
+                buttonBorderColor: '#606063',
+                rifleColor: '#FFF',
+                trackBackgroundColor: '#404043',
+                trackBorderColor: '#404043'
+            },
+
+            // special colors for some of the
+            legendBackgroundColor: 'rgba(0, 0, 0, 0.5)',
+            background2: '#505053',
+            dataLabelsColor: '#B0B0B3',
+            textColor: '#C0C0C0',
+            contrastTextColor: '#F0F0F3',
+            maskColor: 'rgba(255,255,255,0.3)'
+        };
+
+        // Apply the theme
+        Highcharts.setOptions(Highcharts.theme);
+
+        Highcharts.stockChart('technical', {
+
+                rangeSelector: {
+                    selected: 4
+                },
+
+                yAxis: {
+                    labels: {
+                        formatter: function () {
+                            return (this.value > 0 ? ' + ' : '') + this.value + '%';
+                        }
+                    },
+                    plotLines: [{
+                        value: 0,
+                        width: 2,
+                        color: 'silver'
+                    }]
+                },
+
+                plotOptions: {
+                    series: {
+                        compare: 'percent',
+                        showInNavigator: true
+                    }
+                },
+
+                tooltip: {
+                    pointFormat: '<span style="color:{series.color}">{series.name}</span>: <b>{point.y}</b> ({point.change}%)<br/>',
+                    valueDecimals: 2,
+                    split: true
+                },
+
+                series: seriesOptions
+            });
+        }
+
+        $.each(names, function (i, name) {
+
+            $.getJSON('https://www.highcharts.com/samples/data/' + name.toLowerCase() + '-c.json',    function (data) {
+
+                seriesOptions[i] = {
+                    name: name,
+                    data: data
+                };
+
+                // As we're loading the data asynchronously, we don't know what order it will arrive. So
+                // we keep a counter and create the chart when all the data is loaded.
+                seriesCounter += 1;
+
+                if (seriesCounter === names.length) {
+                    createChart();
+                }
+            });
+    });
+  </script>
 
   <script type="text/javascript">
 
@@ -1051,53 +1360,9 @@
             });
         };
         computeVolume();
-
-        // $.getJSON("{% static '' %}{{ volume_file }}", function (data) {
-        //
-        //     // create the chart
-        //     Highcharts.stockChart('volume', {
-        //         chart: {
-        //             alignTicks: false,
-        //             height: 489
-        //         },
-        //
-        //         credits: {
-        //             enabled: false
-        //         },
-        //
-        //         rangeSelector: {
-        //             selected: 1
-        //         },
-        //
-        //         title: {
-        //             text: '{{ org_stock }} Stock Volume'
-        //         },
-        //
-        //         series: [{
-        //             type: 'column',
-        //             name: '{{ org_stock }} Stock Volume',
-        //             data: data,
-        //             dataGrouping: {
-        //                 units: [[
-        //                     'week', // unit name
-        //                     [1] // allowed multiples
-        //                 ], [
-        //                     'month',
-        //                     [1, 2, 3, 4, 6]
-        //                 ]]
-        //             }
-        //         }]
-        //     });
-        // });
   </script>
-  <script src="{% static 'js/technical.js' %}"></script>
 
   <!-- Candlestick Chart JS -->
-  <!--<script src="{% static 'js/cschart.js' %}"></script>-->
-  <!--<script src="{% static 'js/csbars.js' %}"></script>-->
-  <!--<script src="{% static 'js/csheader.js' %}"></script>-->
-  <!--<script src="{% static 'js/csdataprep.js' %}"></script>-->
-  <!--<script src="{% static 'js/csmain.js' %}"></script>-->
   <script type="text/javascript">
 
       function barchart() {

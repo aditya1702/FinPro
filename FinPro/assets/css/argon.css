@@ -16927,12 +16927,13 @@ a.text-lighter:focus
     width: 48px;
     height: 48px;
 
-    color: #fff;
+    color: mediumspringgreen;
     border-radius: 50%;
     background-color: #adb5bd;
 
     align-items: center;
     justify-content: center;
+    border: 2px solid orangered;
 }
 .avatar img
 {
@@ -16957,8 +16958,7 @@ a.text-lighter:focus
 
 .avatar-sm
 {
-    font-size: .875rem;
-
+    font-size: 1.40rem;
     width: 36px;
     height: 36px;
 }
@@ -17737,6 +17737,24 @@ a.btn-icon-only
 {
     position: relative;
     height: 415px;
+}
+
+.chart-technical
+{
+    position: relative;
+    height: 415px;
+}
+
+.chart-volume
+{
+    position: relative;
+    height: 486px;
+}
+
+.chart-comparison
+{
+    position: relative;
+    height: 398px;
 }
 
 .recommendations
