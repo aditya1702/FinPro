@@ -182,11 +182,11 @@ class CompanyPageView(TemplateView):
         stock_json = data.to_dict('records')
 
         # Volume Data
-        with open('./FinPro2/assets/' + str(self.TICKER_DICT[organization]) + '_V.json') as file:
+        with open('./FinPro/assets/' + str(self.TICKER_DICT[organization]) + '_V.json') as file:
             volume_data = json.load(file)
 
         # MACD Data
-        with open('./FinPro2/assets/' + str(self.TICKER_DICT[organization]) + '_MACD.json') as file_:
+        with open('./FinPro/assets/' + str(self.TICKER_DICT[organization]) + '_MACD.json') as file_:
             macd_data = json.load(file_)
 
         # Twitter Data
