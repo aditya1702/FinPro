@@ -1400,7 +1400,7 @@
                  .append("g")
                     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-              x.domain(data.map(function(d) { return d.TIMESTAMP; }));
+              x.domain(data.map(function(d) { return d.DATE; }));
               y.domain([0, d3.max(data, function(d) { return d[MValue]; })]).nice();
 
               var xtickdelta   = Math.ceil(60/(width/data.length))
@@ -1424,7 +1424,7 @@
                   .data(function(d) { return d; })
                 .enter().append("rect")
                   .attr("class", mname+"fill")
-                  .attr("x", function(d) { return x(d.TIMESTAMP) + bardelta; })
+                  .attr("x", function(d) { return x(d.DATE) + bardelta; })
                   .attr("y", function(d) { return y(d[MValue]); })
                   .attr("class", function(d, i) { return mname+i; })
                   .attr("height", function(d) { return y(0) - y(d[MValue]); })
@@ -1481,7 +1481,7 @@
                 .scale(y)
                 .ticks(Math.floor(height/50));
 
-            x.domain(genData.map(function(d) { return d.TIMESTAMP; }));
+            x.domain(genData.map(function(d) { return d.DATE; }));
             y.domain([minimal, maximal]).nice();
 
             var xtickdelta   = Math.ceil(60/(width/genData.length))
@@ -1521,7 +1521,7 @@
             bands.selectAll("rect")
                 .data(function(d) { return d; })
               .enter().append("rect")
-                .attr("x", function(d) { return x(d.TIMESTAMP) + Math.floor(barwidth/2); })
+                .attr("x", function(d) { return x(d.DATE) + Math.floor(barwidth/2); })
                 .attr("y", 0)
                 .attr("height", Bheight)
                 .attr("width", 1)
@@ -1536,7 +1536,7 @@
             stick.selectAll("rect")
                 .data(function(d) { return d; })
               .enter().append("rect")
-                .attr("x", function(d) { return x(d.TIMESTAMP) + Math.floor(barwidth/2); })
+                .attr("x", function(d) { return x(d.DATE) + Math.floor(barwidth/2); })
                 .attr("y", function(d) { return y(d.HIGH); })
                 .attr("class", function(d, i) { return "stick"+i; })
                 .attr("height", function(d) { return y(d.LOW) - y(d.HIGH); })
@@ -1552,7 +1552,7 @@
             candle.selectAll("rect")
                 .data(function(d) { return d; })
               .enter().append("rect")
-                .attr("x", function(d) { return x(d.TIMESTAMP) + delta; })
+                .attr("x", function(d) { return x(d.DATE) + delta; })
                 .attr("y", function(d) { return y(d3.max([d.OPEN, d.CLOSE])); })
                 .attr("class", function(d, i) { return "candle"+i; })
                 .attr("height", function(d) { return y(d3.min([d.OPEN, d.CLOSE])) - y(d3.max([d.OPEN, d.CLOSE])); })
@@ -1573,13 +1573,13 @@
         } // cschart
 
       function genType(d) {
-          d.TIMESTAMP  = parseDate(d.TIMESTAMP);
+          d.DATE  = parseDate(d.DATE);
           d.LOW        = +d.LOW;
           d.HIGH       = +d.HIGH;
           d.OPEN       = +d.OPEN;
           d.CLOSE      = +d.CLOSE;
           d.TURNOVER   = +d.TURNOVER;
-          d.VOLATILITY = +d.VOLATILITY;
+          {#d.VOLATILITY = +d.VOLATILITY;#}
           return d;
         }
 
@@ -1592,15 +1592,15 @@
 
         function dataCompress(data, interval) {
           var compressedData  = d3.nest()
-                         .key(function(d) { return timeCompare(d.TIMESTAMP, interval); })
+                         .key(function(d) { return timeCompare(d.DATE, interval); })
                          .rollup(function(v) { return {
-                                 TIMESTAMP:   timeCompare(d3.values(v).pop().TIMESTAMP, interval),
+                                 DATE:   timeCompare(d3.values(v).pop().DATE, interval),
                                  OPEN:        d3.values(v).shift().OPEN,
                                  LOW:         d3.min(v, function(d) { return d.LOW;  }),
                                  HIGH:        d3.max(v, function(d) { return d.HIGH; }),
                                  CLOSE:       d3.values(v).pop().CLOSE,
                                  TURNOVER:    d3.mean(v, function(d) { return d.TURNOVER; }),
-                                 VOLATILITY:  d3.mean(v, function(d) { return d.VOLATILITY; })
+                                 {#VOLATILITY:  d3.mean(v, function(d) { return d.VOLATILITY; })#}
                                 }; })
                          .entries(data).map(function(d) { return d.values; });
 
@@ -1615,7 +1615,7 @@
                 var interval   = TIntervals[TPeriod];
                 var format     = (interval=="month")?d3.time.format("%b %Y"):d3.time.format("%b %d %Y");
                 var dateprefix = (interval=="month")?"Month of ":(interval=="week")?"Week of ":"";
-                d3.select("#infodate").text(dateprefix + format(data.TIMESTAMP));
+                d3.select("#infodate").text(dateprefix + format(data.DATE));
                 d3.select("#infoopen").text("O " + data.OPEN);
                 d3.select("#infohigh").text("H " + data.HIGH);
                 d3.select("#infolow").text("L " + data.LOW);
@@ -1638,7 +1638,7 @@
         function go() {
 
                 genRaw = {{ stock_values|safe }};
-                genRaw = genRaw.map(function(item){item.TIMESTAMP = parseDate(item.TIMESTAMP); return item;});
+                genRaw = genRaw.map(function(item){item.DATE = parseDate(item.DATE); return item;});
                 mainjs();
 
         };

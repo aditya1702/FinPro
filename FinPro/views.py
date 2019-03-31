@@ -4,10 +4,7 @@ from django.views.generic import TemplateView
 from django.http import HttpResponseRedirect, HttpResponse
 from newsapi import NewsApiClient
 # import json
-# from .models import HistoricalData
-# from .models import CryptoHistoricalData
-# from django.db import connection
-# import datetime
+from .models import StockData
 from datetime import datetime
 from datetime import timedelta
 import twitter
@@ -176,15 +173,17 @@ class CompanyPageView(TemplateView):
             data['source'] = article['source']['name']
             news_json.append(data)
 
-
         # Stocks OHLC Data
-        data = pd.read_csv('/Users/adityavyas/Desktop/Sem-2/DIVA/Project/Data/' + str(self.TICKER_DICT[organization]) + '.csv')
-        data.columns = ['TIMESTAMP', 'HIGH', 'LOW', 'OPEN', 'CLOSE', 'TURNOVER', 'VOLATILITY']
-        data['HIGH'] = data.HIGH.round(2)
-        data['LOW'] = data.LOW.round(2)
-        data['OPEN'] = data.OPEN.round(2)
-        data['CLOSE'] = data.CLOSE.round(2)
-        stock_json = data.to_dict('records')
+        stock_json = []
+        for obj in StockData.objects.filter(symbol = request.GET.get('org')):
+            data = {}
+            data['DATE'] = obj.date
+            data['HIGH'] = np.round(obj.high, 2)
+            data['LOW'] = np.round(obj.low, 2)
+            data['OPEN'] = np.round(obj.open, 2)
+            data['CLOSE'] = np.round(obj.close, 2)
+            data['TURNOVER'] = np.round(obj.volume, 2)
+            stock_json.append(data)
 
         # Volume Data
         with open('./FinPro/assets/' + str(self.TICKER_DICT[organization]) + '_V.json') as file:
