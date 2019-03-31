@@ -5910,6 +5910,7 @@ input[type='button'].btn-block
 {
     position: relative;
     width: 440px;
+    height: 548px;
     display: flex;
     flex-direction: column;
 
@@ -17754,7 +17755,7 @@ a.btn-icon-only
 .chart-comparison
 {
     position: relative;
-    height: 398px;
+    height: 486px;
 }
 
 .recommendations
@@ -19191,7 +19192,7 @@ textarea[resize='horizontal']
 .nav-link i.ni
 {
     position: relative;
-    top: 1px;
+    top: -1px;
 }
 
 .nav-pills .nav-item:not(:last-child)

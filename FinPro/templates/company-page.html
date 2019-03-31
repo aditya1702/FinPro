@@ -127,32 +127,32 @@
       <div class="container-fluid">
 
         <!-- Ticker Widget -->
-        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
-              {
-              "symbols": [
-                {
-                  "title": "S&P 500",
-                  "proName": "INDEX:SPX"
-                },
-                {
-                  "title": "EUR/USD",
-                  "proName": "FX_IDC:EURUSD"
-                },
-                {
-                  "title": "BTC/USD",
-                  "proName": "BITFINEX:BTCUSD"
-                },
-                {
-                  "title": "ETH/USD",
-                  "proName": "BITFINEX:ETHUSD"
-                }
-              ],
-              "theme": "dark",
-              "isTransparent": true,
-              "displayMode": "regular",
-              "locale": "en"
-            }
-          </script>
+{#        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>#}
+{#              {#}
+{#              "symbols": [#}
+{#                {#}
+{#                  "title": "S&P 500",#}
+{#                  "proName": "INDEX:SPX"#}
+{#                },#}
+{#                {#}
+{#                  "title": "EUR/USD",#}
+{#                  "proName": "FX_IDC:EURUSD"#}
+{#                },#}
+{#                {#}
+{#                  "title": "BTC/USD",#}
+{#                  "proName": "BITFINEX:BTCUSD"#}
+{#                },#}
+{#                {#}
+{#                  "title": "ETH/USD",#}
+{#                  "proName": "BITFINEX:ETHUSD"#}
+{#                }#}
+{#              ],#}
+{#              "theme": "dark",#}
+{#              "isTransparent": true,#}
+{#              "displayMode": "regular",#}
+{#              "locale": "en"#}
+{#            }#}
+{#          </script>#}
 
          <!--User-->
         <ul class="navbar-nav align-items-center d-none d-md-flex">
@@ -348,7 +348,7 @@
             <div class="card-header-technical bg-transparent">
                 <ul class="navbar-nav align-items-center d-none d-md-flex">
           <li class="nav-item dropdown">
-            <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="nav-link pr-0" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <div class="media align-items-center">
                 <span class="avatar avatar-sm rounded-circle bg-gradient-dark">
                   <i class="ni ni-sound-wave"></i>
@@ -360,29 +360,29 @@
             </a>
             <div class="dropdown-menu dropdown-menu-arrow dropdown-menu-right">
               <div class=" dropdown-header noti-title">
-                <h6 class="text-overflow m-0">Welcome!</h6>
+                <h6 class="text-overflow m-0">Technical Indicators</h6>
               </div>
-              <a href="profile.html" class="dropdown-item">
-                <i class="ni ni-single-02"></i>
-                <span>My profile</span>
+              <a class="dropdown-item chart-type" data-chart-type="ma">
+                <i class="ni ni-chart-bar-32"></i>
+                <span>Moving Averages</span>
               </a>
-              <a href="profile.html" class="dropdown-item">
-                <i class="ni ni-settings-gear-65"></i>
-                <span>Settings</span>
+              <a class="dropdown-item chart-type" data-chart-type="bb">
+                <i class="ni ni-chart-bar-32"></i>
+                <span>Bollinger Bands</span>
               </a>
-              <a href="profile.html" class="dropdown-item">
-                <i class="ni ni-calendar-grid-58"></i>
-                <span>Activity</span>
+              <a class="dropdown-item chart-type" data-chart-type="sma">
+                <i class="ni ni-chart-bar-32"></i>
+                <span>SMA</span>
               </a>
-              <a href="profile.html" class="dropdown-item">
-                <i class="ni ni-support-16"></i>
-                <span>Support</span>
+              <a class="dropdown-item chart-type" data-chart-type="ema">
+                <i class="ni ni-chart-bar-32"></i>
+                <span>EMA</span>
+              </a>
+              <a class="dropdown-item chart-type" data-chart-type="macd">
+                <i class="ni ni-chart-bar-32"></i>
+                <span>MACD</span>
               </a>
               <div class="dropdown-divider"></div>
-              <a href="http://localhost:8000/login.html" class="dropdown-item">
-                <i class="ni ni-user-run"></i>
-                <span>Logout</span>
-              </a>
             </div>
           </li>
         </ul>
@@ -568,7 +568,14 @@
   <script src="https://code.highcharts.com/stock/indicators/pivot-points.js"></script>
   <script src="https://code.highcharts.com/stock/indicators/ema.js"></script>
   <script src="https://code.highcharts.com/stock/indicators/macd.js"></script>
-{#  <script src="{% static 'js/technical.js' %}"></script>#}
+  <script type="text/javascript">
+      $('.chart-type').click(function(){
+            var type = $(this).attr("data-chart-type");
+            $.get('/chart-update/', {chart_type: type}, function(data){
+                $(".chart-technical").html('<div id = "technical2" class="bg-gradient-dark"></div>');
+            });
+      });
+  </script>
   <script type="text/javascript">
 
     var seriesOptions = [],

@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView
 # from .forms import SearchForm
-# from django.http import HttpResponseRedirect, HttpResponse
+from django.http import HttpResponseRedirect, HttpResponse
 from newsapi import NewsApiClient
 # import json
 # from .models import HistoricalData
@@ -116,6 +116,11 @@ class DashboardPageView(TemplateView):
         }
         return render(request, 'dashboard.html', context = context)
 
+class ChartUpdateView(TemplateView):
+    def get(self, request, **kwargs):
+        chart_type = request.GET.get('chart_type')
+        return HttpResponse(2)
+
 class CompanyPageView(TemplateView):
     TICKER_DICT = {
         "Twitter": "TWTR",
@@ -173,7 +178,7 @@ class CompanyPageView(TemplateView):
 
 
         # Stocks OHLC Data
-        data = pd.read_csv('/Users/adityavyas/Desktop/Data/' + str(self.TICKER_DICT[organization]) + '.csv')
+        data = pd.read_csv('/Users/adityavyas/Desktop/Sem-2/DIVA/Project/Data/' + str(self.TICKER_DICT[organization]) + '.csv')
         data.columns = ['TIMESTAMP', 'HIGH', 'LOW', 'OPEN', 'CLOSE', 'TURNOVER', 'VOLATILITY']
         data['HIGH'] = data.HIGH.round(2)
         data['LOW'] = data.LOW.round(2)

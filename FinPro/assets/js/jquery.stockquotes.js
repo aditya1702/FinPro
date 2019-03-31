@@ -44,7 +44,6 @@
       // return only the response
       // otherwise 3 arugments are provided to `.done` and will cause issues when dynamically mapping
       // multiple requests to responses
-      console.log(response);
       return response;
     });
   }
