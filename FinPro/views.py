@@ -192,6 +192,7 @@ class CompanyPageView(TemplateView):
             volume_data.append(obj.volume)
             volume_json.append(volume_data)
 
+        # Technical Indicators Data
         timestamps = []
         opens = []
         highs = []
@@ -214,6 +215,23 @@ class CompanyPageView(TemplateView):
         technical_charts_data['close'] = closes
         technical_charts_data['volume'] = volumes
         technical_charts_data.to_csv('./Finpro/assets/ohlc.csv', header = False, index = False)
+
+        # Comparison Data
+        watchlist_stocks = ["Twitter", "Facebook"]
+        watchlist_stocks.append(organization)
+        comparison_data = []
+        for stock in watchlist_stocks:
+
+            # Get the data
+            stock_objects = StockData.objects.filter(symbol = self.TICKER_DICT[stock])
+            comp_json = []
+            for obj in stock_objects:
+                comp_data = []
+                comp_data.append(obj.timestamp)
+                comp_data.append(obj.close)
+                comp_json.append(comp_data)
+
+            comparison_data.append(comp_json)
 
         # Twitter Data
         consumer_key = "VAv4Am1zyvKdJCVFEx371BCPL"
@@ -255,5 +273,7 @@ class CompanyPageView(TemplateView):
             'org_sector': self.SECTOR_DICT[organization],
             'volume_json': volume_json,
             'recommendations': recommendations_json,
+            'comparison_stocks': watchlist_stocks,
+            'comparison_data': comparison_data
         }
         return render(request, 'company-page.html', context)
