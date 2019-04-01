@@ -563,16 +563,11 @@
   <link href="https://cdn.anychart.com/releases/v8/css/anychart-ui.min.css?hcode=be5162d915534272a57d0bb781d27f2b" type="text/css" rel="stylesheet">
   <link href="https://cdn.anychart.com/releases/v8/fonts/css/anychart-font.min.css?hcode=be5162d915534272a57d0bb781d27f2b" type="text/css" rel="stylesheet">
 
-  <!-- Technical Bands -->
+  <!-- Technical Indicators -->
   <script>
-        // The data used in this sample can be obtained from the CDN
-        // https://cdn.anychart.com/csv-data/csco-daily.csv
-        var data = anychart.data.loadCsvFile('https://cdn.anychart.com/csv-data/csco-daily.csv');
-        console.log(data);
 
-        function computeBB(data) {
-
-            {#var data = {{ stocks_table|safe }};#}
+    function computeBB(){
+        anychart.data.loadCsvFile("{% static 'ohlc.csv' %}", function (data) {
             // create data table on loaded data
             var dataTable = anychart.data.table();
             dataTable.addData(data);
@@ -604,7 +599,7 @@
                     .yMinorGrid(true)
                     .xMinorGrid(true);
 
-            var series = plot.candlestick(mapping).name('CSCO');
+            var series = plot.candlestick(mapping).name('{{ org_stock }}');
             series.legendItem().iconType('rising-falling');
 
             // create BBands indicator with period 20
@@ -617,7 +612,7 @@
             chart.scroller().line(mapping);
 
             // set chart selected date/time range
-            chart.selectRange('1996-12-27', '1997-06-11');
+            chart.selectRange('2019-02-01', '2018-02-01');
             // set container id for the chart
             chart.container('technical-bb');
             // initiate chart drawing
@@ -632,63 +627,11 @@
             var rangeSelector = anychart.ui.rangeSelector();
             // init range selector
             rangeSelector.render(chart);
-        };
+        });
+    };
 
-        function computeEMA(data) {
-            // create data table on loaded data
-            var dataTable = anychart.data.table();
-            dataTable.addData(data);
-
-            // map loaded data
-            var mapping = dataTable.mapAs({'value': 4});
-
-            // create stock chart
-            var chart = anychart.stock();
-            chart.background().fill({
-              keys: ["#212529", "#212229"],
-            });
-
-            // setting chart padding to fit both Y axes
-            chart.padding(10, 50, 20, 50);
-
-            // create plot on the chart
-            var plot = chart.plot(0);
-
-            // create line series
-            plot.line()
-                    .name('CSCO')
-                    .data(mapping)
-                    .stroke('2px #64b5f6');
-
-            // create EMA indicator with period 50
-            var ema50 = plot.ema(mapping, 30).series();
-            ema50.stroke('#ffa000');
-
-            // adding extra Y axis to the right side
-            plot.yAxis(1).orientation('right');
-
-            // create scroller series with mapped data
-            chart.scroller().line(mapping);
-
-            // set chart selected date/time range
-            chart.selectRange('1990-03-26', '1995-01-03');
-            // set container id for the chart
-            chart.container('technical-ema');
-            // initiate chart drawing
-            chart.draw();
-
-            // create range picker
-            var rangePicker = anychart.ui.rangePicker();
-            // init range picker
-            rangePicker.render(chart);
-
-            // create range selector
-            var rangeSelector = anychart.ui.rangeSelector();
-            // init range selector
-            rangeSelector.render(chart);
-        };
-
-        function computeSMA(data) {
+    function computeSMA(){
+        anychart.data.loadCsvFile("{% static 'ohlc.csv' %}", function (data) {
             // create data table on loaded data
             var dataTable = anychart.data.table();
             dataTable.addData(data);
@@ -712,7 +655,7 @@
 
             // create line series
             plot.line()
-                    .name('CSCO')
+                    .name('{{ org_stock }}')
                     .data(mapping)
                     .stroke('2px #64b5f6');
 
@@ -742,9 +685,67 @@
             var rangeSelector = anychart.ui.rangeSelector();
             // init range selector
             rangeSelector.render(chart);
-        };
+        });
+    };
 
-        function computeMACD(data) {
+    function computeEMA(){
+        anychart.data.loadCsvFile("{% static 'ohlc.csv' %}", function (data) {
+            // create data table on loaded data
+            var dataTable = anychart.data.table();
+            dataTable.addData(data);
+
+            // map loaded data
+            var mapping = dataTable.mapAs({'value': 4});
+
+            // create stock chart
+            var chart = anychart.stock();
+            chart.background().fill({
+              keys: ["#212529", "#212229"],
+            });
+
+            // setting chart padding to fit both Y axes
+            chart.padding(10, 50, 20, 50);
+
+            // create plot on the chart
+            var plot = chart.plot(0);
+
+            // create line series
+            plot.line()
+                    .name('{{ org_stock }}')
+                    .data(mapping)
+                    .stroke('2px #64b5f6');
+
+            // create EMA indicator with period 50
+            var ema50 = plot.ema(mapping, 30).series();
+            ema50.stroke('#ffa000');
+
+            // adding extra Y axis to the right side
+            plot.yAxis(1).orientation('right');
+
+            // create scroller series with mapped data
+            chart.scroller().line(mapping);
+
+            // set chart selected date/time range
+            chart.selectRange('2019-02-01', '2018-02-01');
+            // set container id for the chart
+            chart.container('technical-ema');
+            // initiate chart drawing
+            chart.draw();
+
+            // create range picker
+            var rangePicker = anychart.ui.rangePicker();
+            // init range picker
+            rangePicker.render(chart);
+
+            // create range selector
+            var rangeSelector = anychart.ui.rangeSelector();
+            // init range selector
+            rangeSelector.render(chart);
+        });
+    };
+
+    function computeMACD(){
+        anychart.data.loadCsvFile("{% static 'ohlc.csv' %}", function (data) {
             // create data table on loaded data
             var dataTable = anychart.data.table();
             dataTable.addData(data);
@@ -758,7 +759,7 @@
             chart.background().fill({
               keys: ["#212529", "#212229"],
             });
-            
+
             // setting chart padding to fit both Y axes
             chart.padding(10, 50, 20, 50);
 
@@ -769,7 +770,7 @@
 
             // create line series
             plot.line()
-                    .name('CSCO')
+                    .name('{{ org_stock }}')
                     .data(mapping)
                     .stroke('2px #64b5f6');
 
@@ -800,9 +801,10 @@
             var rangeSelector = anychart.ui.rangeSelector();
             // init range selector
             rangeSelector.render(chart);
-        };
+        });
+    };
 
-        $('.chart-type').click(function(){
+    $('.chart-type').click(function(){
             var type = $(this).attr("data-chart-type");
             if(type == "sma"){
                 $(".chart-technical").html('<div id = "technical-sma" class="bg-gradient-dark"></div>');
@@ -822,8 +824,7 @@
             }
         });
         computeBB();
-
-    </script>
+</script>
 
   <!-- HighStock JS -->
   <script src="{% static 'js/highstock.js' %}"></script>

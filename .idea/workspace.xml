@@ -3,13 +3,22 @@
   <component name="ChangeListManager">
     <list default="true" id="94f845cc-49e5-4601-ba80-f0dd794a6521" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/DATA1.csv" afterPath="$PROJECT_DIR$/DATA1.csv" />
-      <change beforePath="$PROJECT_DIR$/FinPro/assets/css/argon.css" afterPath="$PROJECT_DIR$/FinPro/assets/css/argon.css" />
+      <change beforePath="$PROJECT_DIR$/FinPro/assets/AAPL_MACD.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/FinPro/assets/AAPL_V.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/FinPro/assets/AMZN_MACD.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/FinPro/assets/AMZN_V.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/FinPro/assets/FB_MACD.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/FinPro/assets/FB_V.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/FinPro/assets/MSFT_V.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/FinPro/assets/NFLX_MACD.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/FinPro/assets/NFLX_V.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/FinPro/assets/TWTR_MACD.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/FinPro/assets/TWTR_V.json" afterPath="" />
       <change beforePath="$PROJECT_DIR$/FinPro/assets/css/cschart.css" afterPath="$PROJECT_DIR$/FinPro/assets/css/cschart.css" />
+      <change beforePath="$PROJECT_DIR$/FinPro/assets/stockdata.csv" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/FinPro/assets/tmp.png" afterPath="" />
       <change beforePath="$PROJECT_DIR$/FinPro/templates/company-page.html" afterPath="$PROJECT_DIR$/FinPro/templates/company-page.html" />
-      <change beforePath="$PROJECT_DIR$/FinPro/templates/dashboard.html" afterPath="$PROJECT_DIR$/FinPro/templates/dashboard.html" />
       <change beforePath="$PROJECT_DIR$/FinPro/views.py" afterPath="$PROJECT_DIR$/FinPro/views.py" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
       <change beforePath="$PROJECT_DIR$/../StockStories/StockProject/settings.py" afterPath="$PROJECT_DIR$/../StockStories/StockProject/settings.py" />
       <change beforePath="$PROJECT_DIR$/../stocks-dashboard/index.html" afterPath="$PROJECT_DIR$/../stocks-dashboard/index.html" />
     </list>
@@ -22,11 +31,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="company-page.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="company-page.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/FinPro/templates/company-page.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3297">
-              <caret line="760" column="12" lean-forward="false" selection-start-line="760" selection-start-column="12" selection-end-line="760" selection-end-column="12" />
+            <state relative-caret-position="650">
+              <caret line="601" column="73" lean-forward="false" selection-start-line="601" selection-start-column="73" selection-end-line="601" selection-end-column="73" />
               <folding />
             </state>
           </provider>
@@ -52,11 +61,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/FinPro/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="392">
-              <caret line="175" column="21" lean-forward="true" selection-start-line="175" selection-start-column="21" selection-end-line="175" selection-end-column="21" />
+            <state relative-caret-position="196">
+              <caret line="206" column="43" lean-forward="false" selection-start-line="206" selection-start-column="43" selection-end-line="206" selection-end-column="43" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
               </folding>
@@ -99,8 +108,8 @@
       <file leaf-file-name="cschart.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/FinPro/assets/css/cschart.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="282">
-              <caret line="91" column="0" lean-forward="false" selection-start-line="91" selection-start-column="0" selection-end-line="91" selection-end-column="0" />
+            <state relative-caret-position="627">
+              <caret line="114" column="22" lean-forward="false" selection-start-line="114" selection-start-column="22" selection-end-line="114" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -203,10 +212,10 @@
         <option value="$PROJECT_DIR$/FinPro/urls.py" />
         <option value="$PROJECT_DIR$/FinPro/models.py" />
         <option value="$PROJECT_DIR$/FinPro/migrations/0003_auto_20190331_1707.py" />
-        <option value="$PROJECT_DIR$/FinPro/views.py" />
         <option value="$PROJECT_DIR$/FinPro/templates/dashboard.html" />
         <option value="$PROJECT_DIR$/FinPro/assets/js/anystock_.js" />
         <option value="$PROJECT_DIR$/FinPro/assets/css/argon.css" />
+        <option value="$PROJECT_DIR$/FinPro/views.py" />
         <option value="$PROJECT_DIR$/FinPro/assets/css/cschart.css" />
         <option value="$PROJECT_DIR$/FinPro/templates/company-page.html" />
       </list>
@@ -251,32 +260,6 @@
               <item name="FinPro" type="b2602c69:ProjectViewProjectNode" />
               <item name="FinPro" type="462c0819:PsiDirectoryNode" />
               <item name="FinPro" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="FinPro" type="b2602c69:ProjectViewProjectNode" />
-              <item name="FinPro" type="462c0819:PsiDirectoryNode" />
-              <item name="FinPro" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="FinPro" type="b2602c69:ProjectViewProjectNode" />
-              <item name="FinPro" type="462c0819:PsiDirectoryNode" />
-              <item name="FinPro" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="FinPro" type="b2602c69:ProjectViewProjectNode" />
-              <item name="FinPro" type="462c0819:PsiDirectoryNode" />
-              <item name="FinPro" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="FinPro" type="b2602c69:ProjectViewProjectNode" />
-              <item name="FinPro" type="462c0819:PsiDirectoryNode" />
-              <item name="FinPro" type="462c0819:PsiDirectoryNode" />
-              <item name="migrations" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="FinPro" type="b2602c69:ProjectViewProjectNode" />
@@ -565,14 +548,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/assets/js/csbars.js" />
-    <entry file="file://$PROJECT_DIR$/../StockStories/manage.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../StockStories/requirements.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -839,14 +814,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/FinPro/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="29" lean-forward="false" selection-start-line="13" selection-start-column="29" selection-end-line="13" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/FinPro/assets/js/anystock_.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="52740">
@@ -863,16 +830,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/FinPro/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="392">
-          <caret line="175" column="21" lean-forward="true" selection-start-line="175" selection-start-column="21" selection-end-line="175" selection-end-column="21" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/FinPro/assets/css/argon.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="419">
@@ -881,19 +838,53 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$USER_HOME$/anaconda/envs/py36/lib/python3.6/site-packages/pandas/io/parsers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="241">
+          <caret line="685" column="0" lean-forward="false" selection-start-line="685" selection-start-column="0" selection-end-line="685" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/anaconda/envs/py36/lib/python3.6/site-packages/pandas/core/frame.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="241">
+          <caret line="1652" column="8" lean-forward="false" selection-start-line="1652" selection-start-column="8" selection-end-line="1652" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/FinPro/assets/css/cschart.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="282">
-          <caret line="91" column="0" lean-forward="false" selection-start-line="91" selection-start-column="0" selection-end-line="91" selection-end-column="0" />
+        <state relative-caret-position="627">
+          <caret line="114" column="22" lean-forward="false" selection-start-line="114" selection-start-column="22" selection-end-line="114" selection-end-column="22" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/FinPro/templates/company-page.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3297">
-          <caret line="760" column="12" lean-forward="false" selection-start-line="760" selection-start-column="12" selection-end-line="760" selection-end-column="12" />
+        <state relative-caret-position="650">
+          <caret line="601" column="73" lean-forward="false" selection-start-line="601" selection-start-column="73" selection-end-line="601" selection-end-column="73" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FinPro/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="29" lean-forward="false" selection-start-line="13" selection-start-column="29" selection-end-line="13" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FinPro/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="206" column="43" lean-forward="false" selection-start-line="206" selection-start-column="43" selection-end-line="206" selection-end-column="43" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

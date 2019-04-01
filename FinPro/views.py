@@ -174,9 +174,10 @@ class CompanyPageView(TemplateView):
             news_json.append(data)
 
         # Stocks OHLC and Volume Data
+        stock_objects = StockData.objects.filter(symbol = self.TICKER_DICT[organization])
         stock_json = []
         volume_json = []
-        for obj in StockData.objects.filter(symbol = self.TICKER_DICT[organization]):
+        for obj in stock_objects:
             stock_data = {}
             stock_data['DATE'] = obj.date
             stock_data['HIGH'] = np.round(obj.high, 2)
@@ -191,14 +192,28 @@ class CompanyPageView(TemplateView):
             volume_data.append(obj.volume)
             volume_json.append(volume_data)
 
+        timestamps = []
+        opens = []
+        highs = []
+        lows = []
+        closes = []
+        volumes = []
+        for obj in stock_objects:
+            timestamps.append(obj.timestamp)
+            opens.append(np.round(obj.open, 2))
+            highs.append(np.round(obj.high, 2))
+            lows.append(np.round(obj.low, 2))
+            closes.append(np.round(obj.close, 2))
+            volumes.append(int(obj.volume))
 
-        # # Volume Data
-        # with open('./FinPro/assets/' + str(self.TICKER_DICT[organization]) + '_V.json') as file:
-        #     volume_data = json.load(file)
-
-        # MACD Data
-        with open('./FinPro/assets/' + str(self.TICKER_DICT[organization]) + '_MACD.json') as file_:
-            macd_data = json.load(file_)
+        technical_charts_data = pd.DataFrame()
+        technical_charts_data['timestamp'] = timestamps
+        technical_charts_data['open'] = opens
+        technical_charts_data['high'] = highs
+        technical_charts_data['low'] = lows
+        technical_charts_data['close'] = closes
+        technical_charts_data['volume'] = volumes
+        technical_charts_data.to_csv('./Finpro/assets/ohlc.csv', header = False, index = False)
 
         # Twitter Data
         consumer_key = "VAv4Am1zyvKdJCVFEx371BCPL"
@@ -239,7 +254,6 @@ class CompanyPageView(TemplateView):
             'org_ceo': self.CEO_DICT[organization],
             'org_sector': self.SECTOR_DICT[organization],
             'volume_json': volume_json,
-            'macd_json': macd_data,
-            'recommendations': recommendations_json
+            'recommendations': recommendations_json,
         }
         return render(request, 'company-page.html', context)

@@ -97,13 +97,22 @@ tr:hover td {
     margin-top: -22px;
 }
 #technical-sma{
-    height: 400px;
+    height: 495px;
+    width: 925px;
+    margin-left: -20px;
+    margin-top: -22px;
 }
 #technical-ema{
-    height: 400px;
+    height: 495px;
+    width: 925px;
+    margin-left: -20px;
+    margin-top: -22px;
 }
 #technical-macd{
-    height: 400px;
+    height: 495px;
+    width: 925px;
+    margin-left: -20px;
+    margin-top: -22px;
 }
 
 svg {
