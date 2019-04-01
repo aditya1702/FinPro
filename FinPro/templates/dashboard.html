@@ -338,7 +338,7 @@
                         <tr>
                             <td><img src = '{{ news_data.image }}' alt="" border = 3 height=100 width=150 /></td>
                             <td class="text-left" onclick = "window.open('{{ news_data.url }}')"> {{ news_data.title }}</td>
-                            <td><a class="btn btn-sm btn-primary">Word Cloud</a></td>
+                            <td><a class="btn btn-sm btn-primary" onclick="showModal();">Word Cloud</a></td>
                         </tr>
                     {% endfor %}
                 </tbody>
@@ -346,6 +346,21 @@
             </div>
           </div>
         </div>
+
+{#        <div class="row mt-7">#}
+{#            <div class="col-xl-8 mb-5 mb-xl-0">#}
+{#              <div class="card-sector-treemap bg-gradient-dark shadow-dark" id="word-cloud">#}
+{#                <div class="card-header bg-transparent">#}
+{#                  <div class="row align-items-center">#}
+{#                  </div>#}
+{#                </div>#}
+{#                <div class = "card-body">#}
+{#                  <div class = "chart">#}
+{#                  </div>#}
+{#                </div>#}
+{#              </div>#}
+{#            </div>#}
+{#        </div>#}
       </div>
 
       <!-- Footer -->
@@ -386,6 +401,11 @@
   <script src="https://d3js.org/d3-queue.v3.min.js"></script>
   <script src="https://d3js.org/topojson.v1.min.js"></script>
   <script src="https://code.highcharts.com/stock/modules/drag-panes.js"></script>
+  <script type="text/javascript">
+        function showModal() {
+              $('#word-cloud').modal('show');
+        }
+  </script>
   <script type="text/javascript">
       (function() {
             var margin = {top: 25, right: 0, bottom: 0, left: 0},
@@ -611,8 +631,6 @@
 
   <!-- HighStock JS -->
   <script src="https://code.highcharts.com/highcharts.js"></script>
-  <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>-->
-  <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>-->
 
   <!-- Stock Quotes JS -->
   <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>

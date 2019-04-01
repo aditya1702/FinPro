@@ -84,10 +84,26 @@ tr:hover td {
     margin-top: -3px;
 }
 
-#technical {
+#comparison {
     margin-left: -22px;
     margin-right: -22px;
     margin-top: -3px;
+}
+
+#technical-bb{
+    height: 495px;
+    width: 925px;
+    margin-left: -20px;
+    margin-top: -22px;
+}
+#technical-sma{
+    height: 400px;
+}
+#technical-ema{
+    height: 400px;
+}
+#technical-macd{
+    height: 400px;
 }
 
 svg {

@@ -173,21 +173,28 @@ class CompanyPageView(TemplateView):
             data['source'] = article['source']['name']
             news_json.append(data)
 
-        # Stocks OHLC Data
+        # Stocks OHLC and Volume Data
         stock_json = []
-        for obj in StockData.objects.filter(symbol = request.GET.get('org')):
-            data = {}
-            data['DATE'] = obj.date
-            data['HIGH'] = np.round(obj.high, 2)
-            data['LOW'] = np.round(obj.low, 2)
-            data['OPEN'] = np.round(obj.open, 2)
-            data['CLOSE'] = np.round(obj.close, 2)
-            data['TURNOVER'] = np.round(obj.volume, 2)
-            stock_json.append(data)
+        volume_json = []
+        for obj in StockData.objects.filter(symbol = self.TICKER_DICT[organization]):
+            stock_data = {}
+            stock_data['DATE'] = obj.date
+            stock_data['HIGH'] = np.round(obj.high, 2)
+            stock_data['LOW'] = np.round(obj.low, 2)
+            stock_data['OPEN'] = np.round(obj.open, 2)
+            stock_data['CLOSE'] = np.round(obj.close, 2)
+            stock_data['TURNOVER'] = np.round(obj.volume, 2)
+            stock_json.append(stock_data)
 
-        # Volume Data
-        with open('./FinPro/assets/' + str(self.TICKER_DICT[organization]) + '_V.json') as file:
-            volume_data = json.load(file)
+            volume_data = []
+            volume_data.append(obj.timestamp)
+            volume_data.append(obj.volume)
+            volume_json.append(volume_data)
+
+
+        # # Volume Data
+        # with open('./FinPro/assets/' + str(self.TICKER_DICT[organization]) + '_V.json') as file:
+        #     volume_data = json.load(file)
 
         # MACD Data
         with open('./FinPro/assets/' + str(self.TICKER_DICT[organization]) + '_MACD.json') as file_:
@@ -231,7 +238,7 @@ class CompanyPageView(TemplateView):
             'tweets': tweet_json[:10],
             'org_ceo': self.CEO_DICT[organization],
             'org_sector': self.SECTOR_DICT[organization],
-            'volume_json': volume_data,
+            'volume_json': volume_json,
             'macd_json': macd_data,
             'recommendations': recommendations_json
         }
