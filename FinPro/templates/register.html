@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{% load static %}
 <html>
 
 <head>
@@ -8,15 +9,15 @@
   <meta name="author" content="Creative Tim">
   <title>Argon Dashboard - Free Dashboard for Bootstrap 4</title>
   <!-- Favicon -->
-  <link href="assets/img/brand/favicon.png" rel="icon" type="image/png">
+  <link href="{% static 'img/brand/favicon.png' %}" rel="icon" type="image/png">
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
   <!-- Icons -->
-  <link href="assets/vendor/nucleo/css/nucleo.css" rel="stylesheet">
-  <link href="assets/vendor/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
+  <link href="{% static 'vendor/nucleo/css/nucleo.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/@fortawesome/fontawesome-free/css/all.min.css' %}" rel="stylesheet">
   <!-- Argon CSS -->
-  <link type="text/css" href="assets/css/argon.css?v=1.0.0" rel="stylesheet">
-  <link href="assets/css/cschart.css" rel="stylesheet">
+  <link type="text/css" href="{% static 'css/argon.css' %}" rel="stylesheet">
+  <link href="{% static 'css/cschart.css' %}" rel="stylesheet">
 </head>
 
 <body class="bg-gradient-dark">
@@ -44,13 +45,13 @@
           <div class="card bg-gradient-dark shadow-dark">
             <div class="card-header bg-transparent pb-5">
               <div class="text-muted text-center mt-2 mb-4"><small>Sign up with</small></div>
-              <div class="text-center">
-                <a href="#" class="btn btn-neutral btn-icon mr-4">
-                  <span class="btn-inner--icon"><img src="assets/img/icons/common/github.svg"></span>
+              <div class="btn-wrapper text-center">
+                <a href="#" class="btn btn-neutral btn-icon">
+                  <span class="btn-inner--icon"><img src="{% static 'img/icons/common/github.svg' %}"></span>
                   <span class="btn-inner--text">Github</span>
                 </a>
                 <a href="#" class="btn btn-neutral btn-icon">
-                  <span class="btn-inner--icon"><img src="assets/img/icons/common/google.svg"></span>
+                  <span class="btn-inner--icon"><img src="{% static 'img/icons/common/google.svg' %}"></span>
                   <span class="btn-inner--text">Google</span>
                 </a>
               </div>
@@ -59,7 +60,8 @@
               <div class="text-center text-muted mb-4">
                 <small>Or sign up with credentials</small>
               </div>
-              <form role="form">
+              <form role="form" method="post">
+                {% csrf_token %}
                 <div class="form-group">
                   <div class="input-group input-group-alternative mb-3">
                     <div class="input-group-prepend">
@@ -96,7 +98,7 @@
                   </div>
                 </div>
                 <div class="text-center">
-                  <button type="button" class="btn btn-primary mt-4">Create account</button>
+                  <button type="submit" class="btn btn-primary mt-4">Create account</button>
                 </div>
               </form>
             </div>
@@ -109,41 +111,19 @@
   <!-- Footer -->
   <footer class="footer bg-gradient-dark">
     <div class="row align-items-center justify-content-xl-between">
-      <!--<div class="col-xl-6">-->
-        <!--<div class="copyright text-center text-xl-left text-muted">-->
-          <!--&copy; 2018 <a href="https://www.creative-tim.com" class="font-weight-bold ml-1" target="_blank">FinPro</a>-->
-        <!--</div>-->
-      <!--</div>-->
       <div class="col-xl-6">
-        <!--<ul class="nav nav-footer justify-content-center justify-content-xl-end">-->
-          <!--<li class="nav-item">-->
-            <!--<a href="https://www.creative-tim.com" class="nav-link" target="_blank">Blog</a>-->
-          <!--</li>-->
-          <!--<li class="nav-item">-->
-            <!--<a href="https://www.creative-tim.com/presentation" class="nav-link" target="_blank">About Us</a>-->
-          <!--</li>-->
-        <!--</ul>-->
       </div>
     </div>
   </footer>
 
   <!-- Argon Scripts -->
   <!-- Core -->
-  <script src="assets/vendor/jquery/dist/jquery.min.js"></script>
-  <script src="assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="{% static 'vendor/jquery/dist/jquery.min.js' %}"></script>
+  <script src="{% static 'vendor/bootstrap/dist/js/bootstrap.bundle.min.js' %}"></script>
   <!-- Argon JS -->
-  <script src="assets/js/argon.js?v=1.0.0"></script>
-  <script type="text/javascript" src="assets/js/index.js"></script>
-  <script type="text/javascript" src="assets/js/typed.min.js"></script>
-  <!--<script src="https://rawgit.com/mattboldt/typed.js/master/lib/typed.js"></script>-->
-  <!--<script>-->
-    <!--new Typed('#typing', {-->
-      <!--strings: ["ASSISTANT", "ADVISOR", "ANALYST"],-->
-      <!--typeSpeed: 130,-->
-      <!--backSpeed: 80,-->
-        <!--loop: true-->
-    <!--});-->
-  <!--</script>-->
+  <script src="{% static 'js/argon.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/index.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/typed.min.js' %}"></script>
 </body>
 
 </html>

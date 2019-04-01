@@ -1,16 +1,18 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView
-# from .forms import SearchForm
-from django.http import HttpResponseRedirect, HttpResponse
+from django.http import HttpResponse
+import requests
+import requests_html
+from bs4 import BeautifulSoup
+import pandas as pd
+from yahoo_fin.stock_info import *
 from newsapi import NewsApiClient
-# import json
 from .models import StockData
 from datetime import datetime
 from datetime import timedelta
 import twitter
 import pandas as pd
 import numpy as np
-import json
 
 
 # Create your views here.
@@ -18,20 +20,13 @@ class LoginPageView(TemplateView):
     def get(self, request, **kwargs):
         return render(request, 'login.html', context = None)
 
-
 class SingupPageView(TemplateView):
     def get(self, request, **kwargs):
         return render(request, 'register.html', context = None)
 
-
-# class ProfilePageView(TemplateView):
-#     def get(self, request, **kwargs):
-#         return render(request, 'stockstories.html', context=None)
-
-
-# class SignOutPageView(TemplateView):
-#     def get(self, request, **kwargs):
-#         return render(request, 'signout.html', context=None)
+class ProfilePageView(TemplateView):
+    def get(self, request, **kwargs):
+        return render(request, 'profile.html', context=None)
 
 class GlobalPageView(TemplateView):
     def get(self, request, **kwargs):
@@ -79,15 +74,52 @@ class DashboardPageView(TemplateView):
             data['ticker'] = self.TICKER_DICT[stock]
             watchlist_json.append(data)
 
-        # Top Movers
-        top_movers_json = []
-        for stock in list(self.TICKER_DICT.keys())[:4]:
+        # Top Gainers and Loosers
+        top_gainers_html = requests.get('https://finance.yahoo.com/gainers/', headers = {'User-agent': 'Mozilla/5.0'})
+        soup = BeautifulSoup(top_gainers_html.content, "html.parser")
+        top_gainers = []
+        for row in soup.table.find_all('tr')[1:]:
+            a = row.find_all('td')
+            symbol = a[0].text.replace("\n", "")
+            name = a[1].text.replace("\n", "")
+            price = a[2].text.replace("\n", "")
+            change = a[4].text.replace("\n", "")
+            top_gainers.append((symbol, name, price, change))
+
+        top_losers_html = requests.get('https://finance.yahoo.com/losers/', headers = {'User-agent': 'Mozilla/5.0'})
+        soup = BeautifulSoup(top_losers_html.content, "html.parser")
+        top_losers = []
+        for row in soup.table.find_all('tr')[1:]:
+            a = row.find_all('td')
+            symbol = a[0].text.replace("\n", "")
+            name = a[1].text.replace("\n", "")
+            price = a[2].text.replace("\n", "")
+            change = a[4].text.replace("\n", "")
+            top_losers.append((symbol, name, price, change))
+
+        top_gainers_json = []
+        for stock in top_gainers[:4]:
             data = {}
-            data['name'] = stock
-            data['ticker'] = self.TICKER_DICT[stock]
-            data['perc'] = np.random.choice(['80', '70', '90', '30', '60'])
-            data['action'] = np.random.choice(['buy', 'sell'])
-            top_movers_json.append(data)
+            data['name'] = stock[1]
+            data['ticker'] = stock[0]
+            data['price'] = '$' + str(stock[2])
+            data['change'] = stock[3]
+            # data['perc'] = np.random.choice(['80', '70', '90', '30', '60'])
+            # data['action'] = np.random.choice(['buy', 'sell'])
+            data['color'] = '#3FA75F'
+            top_gainers_json.append(data)
+
+        top_losers_json = []
+        for stock in top_losers[:4]:
+            data = {}
+            data['name'] = stock[1]
+            data['ticker'] = stock[0]
+            data['price'] = '$' + str(stock[2])
+            data['change'] = stock[3]
+            # data['perc'] = np.random.choice(['80', '70', '90', '30', '60'])
+            # data['action'] = np.random.choice(['buy', 'sell'])
+            data['color'] = '#da1e1e'
+            top_losers_json.append(data)
 
         # Recent News Articles Data
         news_json = []
@@ -109,7 +141,8 @@ class DashboardPageView(TemplateView):
         context = {
             'news': news_json[:5],
             'watchlist': watchlist_json,
-            'top_movers': top_movers_json
+            'top_gainers': top_gainers_json,
+            'top_losers': top_losers_json
         }
         return render(request, 'dashboard.html', context = context)
 

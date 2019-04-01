@@ -282,14 +282,14 @@
             <div class="card-header bg-transparent">
                 <div class="row align-items-center">
                 <div class="col">
-                  <h3 class="text-muted mb-0">Top Movers</h3>
+                  <h3 class="text-muted mb-0">Top Gainers</h3>
                 </div>
               </div>
             </div>
             <div class = "card-body">
               <div class = "recommendations">
                   <div class="row">
-                    {% for stock in top_movers %}
+                    {% for stock in top_gainers %}
                       <div class="col-xl-3 col-lg-6">
                       <a onclick="window.open('/company-page/?org={{ stock.name }}')">
                         <div class="card shadow-dark card-stats mb-4 mb-xl-0 bg-gradient-dark">
@@ -297,13 +297,12 @@
                         <div class="card-body" style="height: 150px">
                           <div class="row">
                             <div class="col">
-                              <span class="title text-white">{{ stock.name }}</span>&nbsp;&nbsp;&nbsp;&nbsp;
-                              <div class="tooltip-quotes">
-                                <i class="ni ni-tag text-white"></i><span class="tooltiptext">{{stock.perc}}% of analysts agree that {{ stock.name }} is a {{ stock.action }}</span>
-                                  </div>
+                              <span class="title text-white">{{ stock.name }}</span>
                                 </div>
                                 <div class="col-auto" style="margin-top: 20px">
-                                    <h1><span class="stock-quote" data-symbol="{{ stock.ticker }}"></span></h1>
+{#                                    <h1><span class="stock-quote" data-symbol="{{ stock.ticker }}"></span></h1>#}
+                                    <span class="h2 font-weight-bold mb-0" style="color: {{ stock.color }};"> {{ stock.price }}</span><br/>
+                                    <span class="h4 font-weight-bold mb-0" style="color: {{ stock.color }};"> {{ stock.change }}</span>
                                 </div>
                               </div>
                             </div>
@@ -319,7 +318,50 @@
         </div>
       </div>
 
+      <!-- Top Loosers Chart -->
       <div class="row mt-6">
+        <div class="col-xl-8 mb-5 mb-xl-0">
+
+          <div class="card-recommendation bg-gradient-dark shadow-dark">
+            <div class="card-header bg-transparent">
+                <div class="row align-items-center">
+                <div class="col">
+                  <h3 class="text-muted mb-0">Top Losers</h3>
+                </div>
+              </div>
+            </div>
+            <div class = "card-body">
+              <div class = "recommendations">
+                  <div class="row">
+                    {% for stock in top_losers %}
+                      <div class="col-xl-3 col-lg-6">
+                      <a onclick="window.open('/company-page/?org={{ stock.name }}')">
+                        <div class="card shadow-dark card-stats mb-4 mb-xl-0 bg-gradient-dark">
+                        <span class="img__description"></span>
+                        <div class="card-body" style="height: 150px">
+                          <div class="row">
+                            <div class="col">
+                              <span class="title text-white">{{ stock.name }}</span>
+                                </div>
+                                <div class="col-auto" style="margin-top: 20px">
+                                    <span class="h2 font-weight-bold mb-0" style="color: {{ stock.color }};"> {{ stock.price }}</span><br/>
+                                    <span class="h4 font-weight-bold mb-0" style="color: {{ stock.color }};"> {{ stock.change }}</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          </a>
+                        </div>
+                    {% endfor %}
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="row mt-7">
 
         <!-- News Articles -->
         <div class="col-xl-8 mb-5 mb-xl-0">
@@ -682,7 +724,6 @@
               // return only the response
               // otherwise 3 arugments are provided to `.done` and will cause issues when dynamically mapping
               // multiple requests to responses
-                console.log(response);
               return response;
             });
           }

@@ -72,6 +72,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'StockProject.wsgi.application'
+LOGIN_REDIRECT_URL = '/dashboard/'
 
 
 # Database
