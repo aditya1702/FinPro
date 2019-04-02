@@ -4,7 +4,10 @@ from django.db import models
 
 class UserInfo(models.Model):
     username = models.CharField(primary_key = True, max_length = 20)
+    email = models.CharField(max_length = 20)
     name = models.CharField(max_length = 50)
+    age = models.IntegerField(default = 0)
+    password = models.CharField(blank = True, max_length = 30)
     stocks = models.TextField(blank = True)
 
     def __str__(self):

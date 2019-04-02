@@ -1,13 +1,12 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
+from django.contrib.auth import authenticate, login
 import requests
-import requests_html
 from bs4 import BeautifulSoup
 import pandas as pd
-from yahoo_fin.stock_info import *
 from newsapi import NewsApiClient
-from .models import StockData
+from .models import StockData, UserInfo
 from datetime import datetime
 from datetime import timedelta
 import twitter
@@ -17,11 +16,31 @@ import numpy as np
 
 # Create your views here.
 class LoginPageView(TemplateView):
-    def get(self, request, **kwargs):
+    template_name = 'login.html'
+    def post(self, request, **kwargs):
+        if request.method == 'POST':
+            username = request.POST.get('username')
+            password = request.POST.get('password')
+            if UserInfo.objects.filter(username = username).exists():
+                user = UserInfo.objects.filter(username = username)[0]
+                if user.password == password:
+                    print("HELLO")
+                    return HttpResponseRedirect('/dashboard/?user=' + str(username))
         return render(request, 'login.html', context = None)
 
-class SingupPageView(TemplateView):
-    def get(self, request, **kwargs):
+class SignupPageView(TemplateView):
+    template_name = "register.html"
+    def post(self, request, **kwargs):
+        if request.method == 'POST':
+            username = request.POST.get('username')
+            email = request.POST.get('email')
+            password = request.POST.get('password')
+            if not (UserInfo.objects.filter(username = username).exists() or
+                    UserInfo.objects.filter(email = email).exists()):
+                UserInfo.objects.create(username = username, email = email, password = password)
+                # user = authenticate(username = username, password = password)
+                # login(request, user)
+                return HttpResponseRedirect('/dashboard/?user=' + str(username))
         return render(request, 'register.html', context = None)
 
 class ProfilePageView(TemplateView):
@@ -104,8 +123,6 @@ class DashboardPageView(TemplateView):
             data['ticker'] = stock[0]
             data['price'] = '$' + str(stock[2])
             data['change'] = stock[3]
-            # data['perc'] = np.random.choice(['80', '70', '90', '30', '60'])
-            # data['action'] = np.random.choice(['buy', 'sell'])
             data['color'] = '#3FA75F'
             top_gainers_json.append(data)
 
@@ -116,8 +133,6 @@ class DashboardPageView(TemplateView):
             data['ticker'] = stock[0]
             data['price'] = '$' + str(stock[2])
             data['change'] = stock[3]
-            # data['perc'] = np.random.choice(['80', '70', '90', '30', '60'])
-            # data['action'] = np.random.choice(['buy', 'sell'])
             data['color'] = '#da1e1e'
             top_losers_json.append(data)
 
@@ -139,6 +154,7 @@ class DashboardPageView(TemplateView):
             news_json.append(data)
 
         context = {
+            'username': request.GET.get('user'),
             'news': news_json[:5],
             'watchlist': watchlist_json,
             'top_gainers': top_gainers_json,
