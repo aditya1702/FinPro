@@ -38,8 +38,6 @@ class SignupPageView(TemplateView):
             if not (UserInfo.objects.filter(username = username).exists() or
                     UserInfo.objects.filter(email = email).exists()):
                 UserInfo.objects.create(username = username, email = email, password = password)
-                # user = authenticate(username = username, password = password)
-                # login(request, user)
                 return HttpResponseRedirect('/dashboard/?user=' + str(username))
         return render(request, 'register.html', context = None)
 
@@ -199,6 +197,7 @@ class CompanyPageView(TemplateView):
     def get(self, request, **kwargs):
 
         organization = request.GET.get('org')
+        username = request.GET.get('user')
 
         # News Articles Data
         news_json = []
@@ -316,6 +315,7 @@ class CompanyPageView(TemplateView):
             recommendations_json.append(data)
 
         context = {
+            'username': username,
             'news': news_json[:5],
             'stock_values': stock_json,
             'org_stock': self.TICKER_DICT[organization],
