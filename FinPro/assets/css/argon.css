@@ -17747,6 +17747,20 @@ a.btn-icon-only
     transform: translate(50%, -50%);
 }
 
+.card-stats-2 .card-body
+{
+    padding: 1rem 1.5rem;
+}
+
+.card-stats-2 .card-status-bullet
+{
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 200px;
+    transform: translate(50%, -50%);
+}
+
 .chart
 {
     position: relative;

@@ -68,7 +68,7 @@ class DashboardPageView(TemplateView):
 
         # Watchlist Data
         watchlist_json = []
-        for stock in list(self.TICKER_DICT.keys())[:3] + ['Microsoft']:
+        for stock in ["Twitter", "Facebook", "Amazon", "Netflix"]:
             data = {}
             data['name'] = stock
             data['ticker'] = self.TICKER_DICT[stock]
@@ -159,7 +159,8 @@ class CompanyPageView(TemplateView):
         "Apple": "AAPL",
         "Tesla": "TSLA",
         "Google": "GOOGL",
-        "Netflix": "NFLX"
+        "Netflix": "NFLX",
+        "Microsoft": "MSFT"
     }
     CEO_DICT = {
         "Twitter": "Jack Dorsey",
@@ -250,8 +251,9 @@ class CompanyPageView(TemplateView):
         technical_charts_data.to_csv('./Finpro/assets/ohlc.csv', header = False, index = False)
 
         # Comparison Data
-        watchlist_stocks = ["Twitter", "Facebook"]
-        watchlist_stocks.append(organization)
+        watchlist_stocks = ["Twitter", "Facebook", "Amazon", "Netflix"]
+        if organization not in watchlist_stocks:
+            watchlist_stocks.append(organization)
         comparison_data = []
         for stock in watchlist_stocks:
 

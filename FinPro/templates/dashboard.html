@@ -131,32 +131,32 @@
       <div class="container-fluid">
 
         <!-- Ticker Widget -->
-{#        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>#}
-{#              {#}
-{#              "symbols": [#}
-{#                {#}
-{#                  "title": "S&P 500",#}
-{#                  "proName": "INDEX:SPX"#}
-{#                },#}
-{#                {#}
-{#                  "title": "EUR/USD",#}
-{#                  "proName": "FX_IDC:EURUSD"#}
-{#                },#}
-{#                {#}
-{#                  "title": "BTC/USD",#}
-{#                  "proName": "BITFINEX:BTCUSD"#}
-{#                },#}
-{#                {#}
-{#                  "title": "ETH/USD",#}
-{#                  "proName": "BITFINEX:ETHUSD"#}
-{#                }#}
-{#              ],#}
-{#              "theme": "dark",#}
-{#              "isTransparent": true,#}
-{#              "displayMode": "regular",#}
-{#              "locale": "en"#}
-{#            }#}
-{#          </script>#}
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+              {
+              "symbols": [
+                {
+                  "title": "S&P 500",
+                  "proName": "INDEX:SPX"
+                },
+                {
+                  "title": "EUR/USD",
+                  "proName": "FX_IDC:EURUSD"
+                },
+                {
+                  "title": "BTC/USD",
+                  "proName": "BITFINEX:BTCUSD"
+                },
+                {
+                  "title": "ETH/USD",
+                  "proName": "BITFINEX:ETHUSD"
+                }
+              ],
+              "theme": "dark",
+              "isTransparent": true,
+              "displayMode": "regular",
+              "locale": "en"
+            }
+          </script>
 
          <!--User-->
         <ul class="navbar-nav align-items-center d-none d-md-flex">
@@ -292,19 +292,20 @@
                     {% for stock in top_gainers %}
                       <div class="col-xl-3 col-lg-6">
                       <a onclick="window.open('/company-page/?org={{ stock.name }}')">
-                        <div class="card shadow-dark card-stats mb-4 mb-xl-0 bg-gradient-dark">
+                        <div class="card shadow-dark card-stats-2 mb-4 mb-xl-0 bg-gradient-dark" style="height: 200px;">
                         <span class="img__description"></span>
                         <div class="card-body" style="height: 150px">
                           <div class="row">
                             <div class="col">
                               <span class="title text-white">{{ stock.name }}</span>
                                 </div>
-                                <div class="col-auto" style="margin-top: 20px">
-{#                                    <h1><span class="stock-quote" data-symbol="{{ stock.ticker }}"></span></h1>#}
+                              </div>
+                            <div class="row mt-5">
+                                <div class="col-auto">
                                     <span class="h2 font-weight-bold mb-0" style="color: {{ stock.color }};"> {{ stock.price }}</span><br/>
                                     <span class="h4 font-weight-bold mb-0" style="color: {{ stock.color }};"> {{ stock.change }}</span>
                                 </div>
-                              </div>
+                            </div>
                             </div>
                           </div>
                           </a>
@@ -336,18 +337,20 @@
                     {% for stock in top_losers %}
                       <div class="col-xl-3 col-lg-6">
                       <a onclick="window.open('/company-page/?org={{ stock.name }}')">
-                        <div class="card shadow-dark card-stats mb-4 mb-xl-0 bg-gradient-dark">
-                        <span class="img__description"></span>
+                        <div class="card shadow-dark card-stats-2 mb-4 mb-xl-0 bg-gradient-dark" style="height: 200px;">
+                        <span class="img__description"></span><br/><br/>
                         <div class="card-body" style="height: 150px">
                           <div class="row">
                             <div class="col">
                               <span class="title text-white">{{ stock.name }}</span>
                                 </div>
-                                <div class="col-auto" style="margin-top: 20px">
+                              </div>
+                            <div class="row mt-5">
+                                <div class="col-auto">
                                     <span class="h2 font-weight-bold mb-0" style="color: {{ stock.color }};"> {{ stock.price }}</span><br/>
                                     <span class="h4 font-weight-bold mb-0" style="color: {{ stock.color }};"> {{ stock.change }}</span>
                                 </div>
-                              </div>
+                            </div>
                             </div>
                           </div>
                           </a>
