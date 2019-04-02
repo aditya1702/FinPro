@@ -11,5 +11,6 @@ urlpatterns = [
     url(r'^company-page', views.CompanyPageView.as_view(), name = 'company-page'),
     url(r'^login', views.LoginPageView.as_view(), name = 'login'),
     url(r'^register', views.SignupPageView.as_view(), name = 'register'),
+    url(r'^profile', views.ProfilePageView.as_view(), name = 'profile'),
     url(r'^chart-update', views.ChartUpdateView.as_view(), name = 'chart-update')
 ]

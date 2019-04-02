@@ -43,11 +43,19 @@ class SignupPageView(TemplateView):
 
 class ProfilePageView(TemplateView):
     def get(self, request, **kwargs):
-        return render(request, 'profile.html', context=None)
+        username = request.GET.get('user')
+        context = {
+            'username': username
+        }
+        return render(request, 'profile.html', context = context)
 
 class GlobalPageView(TemplateView):
     def get(self, request, **kwargs):
-        return render(request, 'maps.html', context = None)
+        username = request.GET.get('user')
+        context = {
+            'username': username
+        }
+        return render(request, 'maps.html', context=context)
 
 class DashboardPageView(TemplateView):
     TICKER_DICT = {

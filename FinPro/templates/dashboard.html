@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="Start your development with a Dashboard for Bootstrap 4.">
   <meta name="author" content="Creative Tim">
-  <title>Argon Dashboard - Free Dashboard for Bootstrap 4</title>
+  <title>FinPro</title>
   <!-- Favicon -->
   <link href="{% static 'img/brand/favicon.png' %}" rel="icon" type="image/png">
   <!-- Fonts -->
@@ -61,17 +61,17 @@
         <!-- Navigation -->
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link" href="http://localhost:8000/dashboard.html">
+            <a class="nav-link" href="http://localhost:8000/dashboard.html/?user={{ username }}">
               <i class="ni ni-tv-2 text-primary"></i> <span style="color: darkorange">Dashboard</span>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="http://localhost:8000/maps.html">
+            <a class="nav-link" href="http://localhost:8000/maps.html/?user={{ username }}">
               <i class="ni ni-pin-3 text-orange"></i> <span style="color: darkorange">Global Market</span>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="http://localhost:8000/profile.html">
+            <a class="nav-link" href="http://localhost:8000/profile.html/?user={{ username }}">
               <i class="ni ni-single-02 text-yellow"></i> <span style="color: darkorange">Account</span>
             </a>
           </li>
